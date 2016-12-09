@@ -1,0 +1,603 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "omsLogAnalyticsWorkspaceName": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Create new or refer to an existing OMS Log Analytics Workspace"
+      }
+    }
+  },
+  "variables": {
+    "solutionname": "Kemp Application Delivery",
+    "omsLogAnalyticsAPIVersion": "2015-11-01-preview",
+    "solutionpublisher": "QND",
+    "solutionversion": "1",
+    "solutionauthor": "Daniele Grandini",
+    "solutiondescription": "Kemp Application Delivery Solution",
+    "querytemplateuri": "https//rawcontent.github.com",
+    "location": "[resourceGroup().location]",
+    "deploymentsApiVersion": "2015-01-01",
+    "savedSearchesCategory": "Kemp Application Delivery by QND"
+  },
+  "resources": [
+    {
+      "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+      "name": "[parameters('omslogAnalyticsWorkspaceName')]",
+      "type": "Microsoft.OperationalInsights/workspaces",
+      "location": "[variables('location')]",
+      "resources": [
+/*      {
+        "name": "queries",
+        "type": "Microsoft.Resources/deployments",
+        "apiVersion": "[variables('deploymentsApiVersion')]",
+        "dependsOn": [
+          
+        ],
+        "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+            "uri": "[variables('sharedTemplateUrl')]",
+            "contentVersion": "1.0.0.0"
+          },
+          "parameters": {
+            "location": {
+              "value": "[variables('location')]"
+            },
+            "workspaceName": {
+              "value": "[parameters('omsLogAnalyticsWorkspaceName')]"
+            },
+            "apiVersion": {
+              "value": "[variables('omsLogAnalyticsAPIVersion')]"
+            }
+          }
+        }
+      },    */
+        {
+          "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/', 'QNDKempAlertQ2')]",
+          "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
+          "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+          "location": "[variables('location')]",
+          "dependsOn": [
+            "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]"
+          ],
+          "properties": {
+            "category": "[variables('savedSearchesCategory')]",
+            "ETag": "*",          
+            "DisplayName": "Alert - Device Expiring",
+            "Query": "Type:KempDevice_CL LicensedUntil_t < NOW+2MONTH | dedup Computer",
+            "Version": "1"
+          }
+        },
+        {
+        "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/', 'QNDKempAlertQ2', '/', 'QA2Schedule')]",
+        "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules",
+        "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+        "location": "[variables('location')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]", /* need to add explixit depdency */
+          "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('omsLogAnalyticsWorkspaceName'), 'QNDKempAlertQ2')]"
+        ],
+        "properties": {
+          "Interval": 60,
+          "QueryTimeSpan": 60,
+          "Active": "true"
+        }
+      },
+      {
+        "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/', 'QNDKempAlertQ2', '/', 'QA2Schedule','/','A1')]",
+        "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
+        "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+        "location": "[variables('location')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]", /* need to add explixit depdency */
+          "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('omsLogAnalyticsWorkspaceName'), 'QNDKempAlertQ2', 'QA2Schedule')]"      ],
+        "properties": {
+          "Type": "Alert",
+          "Name": "KEMP - Device license is about to expire",
+          "Threshold": {
+            "Operator": "gt",
+            "Value": 0
+          },
+          "Version": 1
+        }
+      },            
+        {
+          "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/', 'QNDKempAlertQ1')]",
+          "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
+          "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+          "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]"
+          ],
+          "properties": {
+            "category": "[variables('savedSearchesCategory')]",
+            "ETag": "*",
+            "query": "Type:KempStatus_CL (servertype_s=vs or servertype_s=subvs) enabled_s=Y status_s!=Up | dedup name_s",
+            "displayName": "Alert - VS not Up"
+          }
+        },
+
+        {
+          "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+          "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/' ,variables('solutionname'))]",
+          "type": "Microsoft.OperationalInsights/workspaces/views",
+          "location": "[resourceGroup().location]",
+          "id": "[Concat(subscription().id, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/views/', variables('solutionname'))]",
+          "dependson": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]"
+          ],
+            "properties": {
+              "Id": "[variables('solutionname')]",
+              "Name": "[variables('solutionname')]",
+              "displayName": "[variables('solutionname')]",
+              "Description": "[variables('solutiondescription')]",
+              "Author": "[variables('solutionauthor')]",
+              "Source": "Local",
+              "Dashboard": [
+                  {
+                      "Id": "InformationBlade",
+                      "Type": "Blade",
+                      "Version": 0,
+                      "Configuration": {
+                          "General": {
+                              "Title": "",
+                              "NewGroup": false,
+                              "Color": "#0072c6"
+                          },
+                          "Header": {
+                              "Image": "",
+                              "Label": "Kemp LoadMaster monitoring",
+                              "Link": {
+                                  "Label": "More info",
+                                  "Url": "http://nocentdocent.wordpress.com"
+                              }
+                          },
+                          "List": [
+                              {
+                                  "Title": "The solution needs to be configured",
+                                  "Content": "## OMS agent configuration\n\nOn a supported Linux platform install the [OMS agent](https://github.com/Microsoft/OMS-Agent-for-Linux)\n\nInstall the Kemp extension following these [steps](https://github.com/QuaeNocentDocent/OMS-Agent-for-Linux)\n\n## Kemp device configuration\n\n1. Enable the REST API\n2. Create a readonly user\n3. Optionally configure an external syslog server pointing to the linux system where you installed the extension using udp on port 25326\n\n## Configure the solution\nEdit the /etc/opt/microsoft/omsagent/conf/omsagent.d/kemp.conf file to add the devices you want to poll and the credentials. [More info](https://github.com/QuaeNocentDocent/OMS-Agent-for-Linux)\n\n![Kemp Logo](\"https://kemptechnologies.com/sites/all/themes/custom/ktwide/images/KEMP-logov2.svg\")"
+                              }
+                          ]
+                      }
+                  },
+                  {
+                      "Id": "SingleQueryDonutBuilderBladeV1",
+                      "Type": "Blade",
+                      "Version": 0,
+                      "Configuration": {
+                          "General": {
+                              "title": "Connected Devices",
+                              "newGroup": false,
+                              "icon": "",
+                              "useIcon": false
+                          },
+                          "Header": {
+                              "Title": "devices by model",
+                              "Subtitle": ""
+                          },
+                          "Donut": {
+                              "Query": "Type:KempDevice_CL | measure countdistinct(Computer) by ApplianceModel_s",
+                              "CenterLegend": {
+                                  "Text": "Total",
+                                  "Operation": "Sum",
+                                  "ArcsToSelect": []
+                              },
+                              "Options": {
+                                  "colors": [
+                                      "#00188f",
+                                      "#0072c6",
+                                      "#00bcf2"
+                                  ],
+                                  "valueColorMapping": []
+                              }
+                          },
+                          "List": {
+                              "Query": "Type:KempDevice_CL | measure countdistinct(Computer) by Computer,ApplianceModel_s",
+                              "HideGraph": true,
+                              "enableSparklines": false,
+                              "ColumnsTitle": {
+                                  "Name": "Computer",
+                                  "Value": "Count"
+                              },
+                              "Color": "#0072c6",
+                              "operation": "Summary",
+                              "thresholds": {
+                                  "isEnabled": false,
+                                  "values": [
+                                      {
+                                          "name": "Normal",
+                                          "threshold": "Default",
+                                          "color": "#009e49",
+                                          "isDefault": true
+                                      },
+                                      {
+                                          "name": "Warning",
+                                          "threshold": "60",
+                                          "color": "#fcd116",
+                                          "isDefault": false
+                                      },
+                                      {
+                                          "name": "Error",
+                                          "threshold": "90",
+                                          "color": "#ba141a",
+                                          "isDefault": false
+                                      }
+                                  ]
+                              },
+                              "NameDSVSeparator": "",
+                              "NavigationQuery": "{selected item}"
+                          }
+                      }
+                  },
+                  {
+                      "Id": "SingleQueryDonutBuilderBladeV1",
+                      "Type": "Blade",
+                      "Version": 0,
+                      "Configuration": {
+                          "General": {
+                              "title": "Devices by version",
+                              "newGroup": false,
+                              "icon": "",
+                              "useIcon": false
+                          },
+                          "Header": {
+                              "Title": "Version",
+                              "Subtitle": ""
+                          },
+                          "Donut": {
+                              "Query": "Type:KempDevice_CL | measure countdistinct(Computer) by version_s",
+                              "CenterLegend": {
+                                  "Text": "Total",
+                                  "Operation": "Sum",
+                                  "ArcsToSelect": []
+                              },
+                              "Options": {
+                                  "colors": [
+                                      "#00188f",
+                                      "#0072c6",
+                                      "#00bcf2"
+                                  ],
+                                  "valueColorMapping": []
+                              }
+                          },
+                          "List": {
+                              "Query": "Type:KempDevice_CL | measure countdistinct(Computer) by Computer, version_s",
+                              "HideGraph": false,
+                              "enableSparklines": false,
+                              "ColumnsTitle": {
+                                  "Name": "Computer",
+                                  "Value": "Count"
+                              },
+                              "Color": "#0072c6",
+                              "operation": "Summary",
+                              "thresholds": {
+                                  "isEnabled": false,
+                                  "values": [
+                                      {
+                                          "name": "Normal",
+                                          "threshold": "Default",
+                                          "color": "#009e49",
+                                          "isDefault": true
+                                      },
+                                      {
+                                          "name": "Warning",
+                                          "threshold": "60",
+                                          "color": "#fcd116",
+                                          "isDefault": false
+                                      },
+                                      {
+                                          "name": "Error",
+                                          "threshold": "90",
+                                          "color": "#ba141a",
+                                          "isDefault": false
+                                      }
+                                  ]
+                              },
+                              "NameDSVSeparator": "",
+                              "NavigationQuery": "{selected item}"
+                          }
+                      }
+                  },
+                  {
+                      "Id": "NumberTileListBuilderBlade",
+                      "Type": "Blade",
+                      "Version": 0,
+                      "Configuration": {
+                          "General": {
+                              "title": "Devices by expiration",
+                              "newGroup": false,
+                              "icon": "",
+                              "useIcon": false
+                          },
+                          "Tile": {
+                              "Legend": "Computers sending data",
+                              "Query": "Type:KempDevice_CL | measure count() by Computer"
+                          },
+                          "List": {
+                              "Query": "Type:KempDevice_CL | measure max(LicensedUntil_t) As Expiration by Computer, LicensedUntil_t | sort Expiration desc",
+                              "HideGraph": true,
+                              "enableSparklines": false,
+                              "ColumnsTitle": {
+                                  "Name": "Computer",
+                                  "Value": ""
+                              },
+                              "Color": "#0072c6",
+                              "operation": "Summary",
+                              "thresholds": {
+                                  "isEnabled": false,
+                                  "values": [
+                                      {
+                                          "name": "Normal",
+                                          "threshold": "Default",
+                                          "color": "#009e49",
+                                          "isDefault": true
+                                      },
+                                      {
+                                          "name": "Warning",
+                                          "threshold": "60",
+                                          "color": "#fcd116",
+                                          "isDefault": false
+                                      },
+                                      {
+                                          "name": "Error",
+                                          "threshold": "90",
+                                          "color": "#ba141a",
+                                          "isDefault": false
+                                      }
+                                  ]
+                              },
+                              "NameDSVSeparator": "",
+                              "NavigationQuery": "{selected item}"
+                          }
+                      }
+                  },
+                  {
+                      "Id": "LineChartBuilderBlade",
+                      "Type": "Blade",
+                      "Version": 0,
+                      "Configuration": {
+                          "General": {
+                              "title": "TPS Usage",
+                              "newGroup": true,
+                              "icon": "",
+                              "useIcon": false
+                          },
+                          "Header": {
+                              "Title": "TPS Usage over time",
+                              "Subtitle": ""
+                          },
+                          "LineChart": {
+                              "Query": "Type:Perf (ObjectName=\"KempLM-TPS\") CounterName=\"Total TPS\" | measure max(CounterValue) by Computer | display linechart",
+                              "yAxis": {
+                                  "isLogarithmic": false,
+                                  "units": {
+                                      "baseUnitType": "",
+                                      "baseUnit": "",
+                                      "displayUnit": ""
+                                  },
+                                  "customLabel": ""
+                              }
+                          },
+                          "List": {
+                              "Query": "Type:Perf (ObjectName=\"KempLM-TPS\") CounterName=\"Total TPS\" | measure percentile99(CounterValue) by Computer",
+                              "HideGraph": false,
+                              "enableSparklines": true,
+                              "ColumnsTitle": {
+                                  "Name": "Device",
+                                  "Value": "TPS"
+                              },
+                              "Color": "#0072c6",
+                              "operation": "Summary",
+                              "thresholds": {
+                                  "isEnabled": false,
+                                  "values": [
+                                      {
+                                          "name": "Normal",
+                                          "threshold": "Default",
+                                          "color": "#009e49",
+                                          "isDefault": true
+                                      },
+                                      {
+                                          "name": "Warning",
+                                          "threshold": "150",
+                                          "color": "#fcd116",
+                                          "isDefault": false
+                                      },
+                                      {
+                                          "name": "Error",
+                                          "threshold": "190",
+                                          "color": "#ba141a",
+                                          "isDefault": false
+                                      }
+                                  ]
+                              },
+                              "NameDSVSeparator": "",
+                              "NavigationQuery": "{selected item}"
+                          }
+                      }
+                  },
+                  {
+                      "Id": "LineChartBuilderBlade",
+                      "Type": "Blade",
+                      "Version": 0,
+                      "Configuration": {
+                          "General": {
+                              "title": "Processor Usage",
+                              "newGroup": false,
+                              "icon": "",
+                              "useIcon": false
+                          },
+                          "Header": {
+                              "Title": "Usage over time",
+                              "Subtitle": ""
+                          },
+                          "LineChart": {
+                              "Query": "Type:Perf (ObjectName=\"KempLM-Processor\") (CounterName=\"% System Time\") | measure percentile95(CounterValue) by Computer interval 15MINUTES | display linechart",
+                              "yAxis": {
+                                  "isLogarithmic": false,
+                                  "units": {
+                                      "baseUnitType": "",
+                                      "baseUnit": "",
+                                      "displayUnit": ""
+                                  },
+                                  "customLabel": ""
+                              }
+                          },
+                          "List": {
+                              "Query": "Type:Perf (ObjectName=\"KempLM-Processor\") (CounterName=\"% System Time\") | measure percentile95(CounterValue) by Computer interval 15MINUTES",
+                              "HideGraph": false,
+                              "enableSparklines": true,
+                              "ColumnsTitle": {
+                                  "Name": "Device",
+                                  "Value": "CPU"
+                              },
+                              "Color": "#0072c6",
+                              "operation": "Summary",
+                              "thresholds": {
+                                  "isEnabled": true,
+                                  "values": [
+                                      {
+                                          "name": "Normal",
+                                          "threshold": "Default",
+                                          "color": "#009e49",
+                                          "isDefault": true
+                                      },
+                                      {
+                                          "name": "Warning",
+                                          "threshold": "60",
+                                          "color": "#fcd116",
+                                          "isDefault": false
+                                      },
+                                      {
+                                          "name": "Error",
+                                          "threshold": "90",
+                                          "color": "#ba141a",
+                                          "isDefault": false
+                                      }
+                                  ]
+                              },
+                              "NameDSVSeparator": "",
+                              "NavigationQuery": "{selected item}"
+                          }
+                      }
+                  },
+                  {
+                      "Id": "LineChartBuilderBlade",
+                      "Type": "Blade",
+                      "Version": 0,
+                      "Configuration": {
+                          "General": {
+                              "title": "Memory Usage",
+                              "newGroup": false,
+                              "icon": "",
+                              "useIcon": false
+                          },
+                          "Header": {
+                              "Title": "Memory used over time",
+                              "Subtitle": ""
+                          },
+                          "LineChart": {
+                              "Query": "Type:Perf (ObjectName=\"KempLM-Memory\") CounterName=\"% Used\" | measure percentile99(CounterValue) by Computer | display linechart",
+                              "yAxis": {
+                                  "isLogarithmic": false,
+                                  "units": {
+                                      "baseUnitType": "",
+                                      "baseUnit": "",
+                                      "displayUnit": ""
+                                  },
+                                  "customLabel": ""
+                              }
+                          },
+                          "List": {
+                              "Query": "Type:Perf (ObjectName=\"KempLM-Memory\") CounterName=\"% Used\" | measure percentile99(CounterValue) As MemoryUsed by Computer | sort MemoryUsed desc",
+                              "HideGraph": false,
+                              "enableSparklines": true,
+                              "ColumnsTitle": {
+                                  "Name": "Computer",
+                                  "Value": "% Used"
+                              },
+                              "Color": "#0072c6",
+                              "operation": "Summary",
+                              "thresholds": {
+                                  "isEnabled": true,
+                                  "values": [
+                                      {
+                                          "name": "Normal",
+                                          "threshold": "Default",
+                                          "color": "#009e49",
+                                          "isDefault": true
+                                      },
+                                      {
+                                          "name": "Warning",
+                                          "threshold": "70",
+                                          "color": "#fcd116",
+                                          "isDefault": false
+                                      },
+                                      {
+                                          "name": "Error",
+                                          "threshold": "90",
+                                          "color": "#ba141a",
+                                          "isDefault": false
+                                      }
+                                  ]
+                              },
+                              "NameDSVSeparator": "",
+                              "NavigationQuery": "{selected item}"
+                          }
+                      }
+                  }
+              ],
+              "OverviewTile": {
+                  "Id": "DoubleNumberBuilderTile",
+                  "Type": "OverviewTile",
+                  "Version": 0,
+                  "Configuration": {
+                      "TileOne": {
+                          "Legend": "Kemp Devices",
+                          "Query": "Type:KempDevice_CL | measure countdistinct(Computer) by Computer"
+                      },
+                      "TileTwo": {
+                          "Legend": "Virtual Servers",
+                          "Query": "Type:KempStatus_CL | measure countdistinct(name_s) by name_s"
+                      },
+                      "Advanced": {
+                          "DataFlowVerification": {
+                              "Enabled": true,
+                              "Query": "Type:KempDevice_CL",
+                              "Message": "The solution needs to be configured for data to be gathered"
+                          }
+                      }
+                  }
+              }
+            }
+        }
+      ]
+    },
+    {
+      "type": "Microsoft.OperationsManagement/solutions",
+      "name": "[variables('solutionname')]",
+      "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+      "location": "[variables('location')]",
+      "dependsOn": [
+        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
+        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/views/', variables('solutionname'))]"
+      ],
+      "plan": {
+        "name": "[variables('solutionname')]",
+        "publisher": "[variables('solutionpublisher')]",
+        "promotionCode": "",
+        "product": "[concat('OMSGallery/', variables('solutionname'))]",
+        "Version": "[variables('solutionversion')]"
+      },
+      "properties": {
+        "workspaceResourceId": "[concat(resourceGroup().id, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
+        "containedResources": [
+             ]
+      }
+    }
+  ],
+  "outputs": {
+  }
+}
