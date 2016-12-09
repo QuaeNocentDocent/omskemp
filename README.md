@@ -2,8 +2,7 @@
 
 ##Caveats
 
-- **This is a preview version of the solution** please feel free to experiment and report feedback. Installing the solution will make no arm to your running environment, but will ingest data into your OMS workspace. The format of the data can bechanged in future releases.
-- **This git repo is going to be moved** initially I thought it was a good idea to from from the mail OMS agent repo, but now I'm not sure this is a wise decision, since there are afew chances I'll able to submit a pull request to the main repo. Thus I'm going to create a dedicated repo for this solution.
+- **This is a preview version of the solution** please feel free to experiment and report feedback. Installing the solution will make no arm to your running environment, but will ingest data into your OMS workspace. The format of the data can be changed in future releases.
 
 
 ##Solution goal
@@ -17,17 +16,17 @@ The solution is a natural extension of the Linux OMS Agent, so first of all you 
 Once the agent is properly configured the easiest way to configure the solution is to run the following command:
 
 ~~~
-sudo wget https://raw.githubusercontent.com/QuaeNocentDocent/OMS-Agent-for-Linux/kemp/installer/scripts/kemp-install.sh && sh kemp-install.sh
+sudo wget https://raw.githubusercontent.com/QuaeNocentDocent/omskemp/master/installer/kemp-install.sh && sh kemp-install.sh
 ~~~
 
 You can obviously check on github what the script does and repro the steps manually.
 
 if you want you can install the OMS Solution
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FQuaeNocentDocent%2FOMS-Agent-for-Linux%2Fkemp%2Fsource%2Fcode%2Ftemplates%2Fkempsolution.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FQuaeNocentDocent%2Fomskemp%2Fmaster%2Fcode%2Ftemplates%2Fkempsolution.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FQuaeNocentDocent%2FOMS-Agent-for-Linux%2Fkemp%2Fsource%2Fcode%2Ftemplates%2Fkempsolution.json" target="_blank">
+<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FQuaeNocentDocent%2Fomskemp%2Fmaster%2Fcode%2Ftemplates%2Fkempsolution.json" target="_blank">
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
