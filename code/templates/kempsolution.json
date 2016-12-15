@@ -77,10 +77,11 @@
         "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
         "location": "[variables('location')]",
         "dependsOn": [
-          "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]", /* need to add explixit depdency */
+          "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]", /* need to add explicit dependency */
           "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('omsLogAnalyticsWorkspaceName'), 'QNDKempAlertQ2')]"
         ],
         "properties": {
+            "ETag": "*",    // required to proper removal
           "Interval": 60,
           "QueryTimeSpan": 60,
           "Active": "true"
@@ -92,9 +93,10 @@
         "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
         "location": "[variables('location')]",
         "dependsOn": [
-          "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]", /* need to add explixit depdency */
+          "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]", /* need to add explicit dependency */
           "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('omsLogAnalyticsWorkspaceName'), 'QNDKempAlertQ2', 'QA2Schedule')]"      ],
         "properties": {
+            "ETag": "*",    // required to proper removal            
           "Type": "Alert",
           "Name": "KEMP - Device license is about to expire",
           "Threshold": {
@@ -582,7 +584,13 @@
       "location": "[variables('location')]",
       "dependsOn": [
         "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
-        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/views/', variables('solutionname'))]"
+        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/views/', variables('solutionname'))]",
+        // as per Kris suggestion add dedendencies to the searches, schedules and actions
+        "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches',concat(parameters('omsLogAnalyticsWorkspaceName'), '/', 'QNDKempAlertQ1'))]",
+        "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches',concat(parameters('omsLogAnalyticsWorkspaceName'), '/', 'QNDKempAlertQ2'))]",
+        "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions',concat(parameters('omsLogAnalyticsWorkspaceName'), '/', 'QNDKempAlertQ2', '/', 'QA2Schedule','/','A1'))]",
+        "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules',concat(parameters('omsLogAnalyticsWorkspaceName'), '/', 'QNDKempAlertQ2', '/', 'QA2Schedule'))]"
+        
       ],
       "plan": {
         "name": "[variables('solutionname')]",
@@ -594,6 +602,12 @@
       "properties": {
         "workspaceResourceId": "[concat(resourceGroup().id, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
         "containedResources": [
+                        // as per Kris suggestion add the searches, schedules and actions as contained resources
+            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches',concat(parameters('omsLogAnalyticsWorkspaceName'), '/', 'QNDKempAlertQ1'))]",
+            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches',concat(parameters('omsLogAnalyticsWorkspaceName'), '/', 'QNDKempAlertQ2'))]",
+            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions',concat(parameters('omsLogAnalyticsWorkspaceName'), '/', 'QNDKempAlertQ2', '/', 'QA2Schedule','/','A1'))]",
+            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules',concat(parameters('omsLogAnalyticsWorkspaceName'), '/', 'QNDKempAlertQ2', '/', 'QA2Schedule'))]"
+
              ]
       }
     }
