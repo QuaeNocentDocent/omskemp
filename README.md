@@ -30,13 +30,14 @@ if you want you can install the OMS Solution
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
-...insert picture here
+![SolutionOverview](docs/pictures/DockerPics/solution overview.png?raw=true)
 
 ##configuration
 
 On your Kemp devices you must enable the REST interface and create a readonly user for the data collection.
 
-After the files have been installed and you configured the devices, you need to edit /etc/opt/omsagent/conf/omsagent.d/kemp.conf to include your kemp devices address. You cna have as many source tags as you want, every source tag contains all the devices that are accessible with the same credentials. In the nodes attribute you must specify the fqnd or ip address of your devices following the syntax in the installed configuration file:
+After the files have been installed and you configured the devices, you need to copy edit the kemp.conf sample file to include your kemp devices address. You can have as many source tags as you want, every source tag contains all the devices that are accessible with the same credentials.
+In the nodes attribute you must specify the fqnd or ip address of your devices following the syntax in the installed configuration file:
 
 ~~~
 <source>
@@ -52,6 +53,7 @@ After the files have been installed and you configured the devices, you need to 
 </source>
 ~~~
 
+You must then copy the kemp.conf file to /etc/opt/omsagent/conf/omsagent.d/kemp.conf (sudo cp ./kemp.conf /etc/opt/omsagent/conf/omsagent.d)
 Lastly, you must retart the OMS agent "sudo service omsagent restart" and the data will be ingested in your workspace.
 
 Optionally you can configure your Kemp devices to send syslog data to OMS, in this case the solution will intercept the stream and create for your a specific log that will be easier to query.
@@ -90,7 +92,9 @@ This solution is open source under the GPL-2.0 licensing agreement. Is it is bas
 
 If you find this solution useful and want to contribute to local community events, socials and charities you can ...
 
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="text" id="name" name="name"/>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
 <input type="image" src="https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal è il metodo rapido e sicuro per pagare e farsi pagare online.">
