@@ -90,11 +90,9 @@ You can get the {your subscription Id}, {your resource group name} and {your wor
 
 This solution is open source under the GPL-2.0 licensing agreement. Is it is basically free, anyway support for deploying and/or configuring it is not free, you can contact my company by [email](mailto:info@progel.it)
 
-If you find this solution useful and want to contribute to local community events, socials and charities you can donate 
+If you find this solution useful and want to contribute to local community events, socials and charities you can donate
 
-
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TYVKJP655BD9S"><img srv="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" /></a>
-
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=TYVKJP655BD9S"><img src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" /></a>
 
 #Resources and links
 
