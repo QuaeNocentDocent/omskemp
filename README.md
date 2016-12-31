@@ -1,4 +1,4 @@
-#Kemp LoadMaster Extension for OMS
+#Kemp LoadMaster / Application Gateway Extension for OMS
 
 ##Caveats
 
