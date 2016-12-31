@@ -83,7 +83,7 @@ class KempDevice
       end
     else
       #result[instance]=[]
-      result[instance] = {'CounterName'=>counter_label, 'Value'=>sub_hash[value].to_f}
+      result[instance] = {'CounterName'=>counter_label, 'Value'=>sub_hash[value].to_f} #unless sub_hash[value].nil?
     end
 
     result
@@ -173,6 +173,8 @@ class KempDevice
     }
     results        
   end
+
+
   def device_perf (name, user_name, user_password,counters_map)
 
     #open points
@@ -208,7 +210,33 @@ class KempDevice
       counters_map.each {|instance|
           instances={}
           instance[:counters].each {|counter| 
-            counters = self.parse_counter(perf, instance[:selector], instance[:instance], counter[:counter], counter[:value])
+            #we can have very limited support for calculated counters:
+            # - we support just + 
+            # - calculated counters must be defined after the operands needed
+            # - calculated counters must be contained in the same instance
+            if (counter[:value][0] == '[') 
+                new_counter = 0
+                begin 
+                  @@log.debug {"calculating counter #{counter[:counter]} with value #{counter[:value]}"}
+                  operands=counter[:value].scan(/\[(.+?)\]/).flatten
+                  @@log.debug {"Parsed value #{operands}"}
+                  operands.each {|v|
+                    @@log.debug {"Looking for #{v}"}     
+                    instances[instance[:instance]].each {|c|
+                      new_counter += c['Value'] if c['CounterName'] == v
+                    }
+                  } 
+                rescue Exception => e
+                  new_counter=nil
+                  @@log.error {"error calculating counter #{counter[:counter]} #{e.message}"}
+                end 
+                # this to get the operators but we will manage them in future versions counter[:value].scan(/\](.)/).flatten
+                # in the future we can substitute the values and use *eval* to evaluate the computation so that we can use any math ruby makes available
+                counters={}
+                counters[instance[:instance]] = {'CounterName'=>counter[:counter], 'Value'=>new_counter.to_f}
+            else
+              counters = self.parse_counter(perf, instance[:selector], instance[:instance], counter[:counter], counter[:value])
+            end
             counters.each {|key, value|
                 instances[key]=[] unless instances.has_key?(key)
                 instances[key] << value
@@ -314,6 +342,10 @@ class KempDevice
                 }               
               }          
           end      
+        }
+        #now remove from the vs_map the sub_vs
+        @subvs_map.each { |key, value|
+          if ! @vs_map[key].nil? then @vs_map.delete(key) end
         }
         #no error handling right now
       rescue Exception => e

@@ -14,8 +14,8 @@ wget "$GITHUB_SOURCE/source/code/plugins/kemp_lib.rb"
 wget "https://raw.githubusercontent.com/fluent/fluent-plugin-rewrite-tag-filter/master/lib/fluent/plugin/out_rewrite_tag_filter.rb"
 wget "$GITHUB_SOURCE/installer/conf/omsagent.d/kemp.conf"
 
-# we must implement some sort of version control
+# I must implement some sort of version control and probably I must not copy the configuration file
 cp ./*.rb $PLUGIN_PATH
-cp ./kemp.conf $CONF_PATH
+#cp ./kemp.conf $CONF_PATH
 
 `/opt/microsoft/omsagent/bin/gem install multi_xml

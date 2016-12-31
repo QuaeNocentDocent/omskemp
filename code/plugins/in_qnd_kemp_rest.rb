@@ -30,6 +30,7 @@ module Fluent
       {:object=>'Processor', :instance=>'_Total', :selector=>'CPU.total', :counters => [
           {:counter=>'% System Time', :value=>'System'},
           {:counter=>'% User Time',  :value=>'User'},
+          {:counter=>'% Total Time',  :value=>'[% System Time]+[% User Time]'},
           {:counter=>'IO Waiting',  :value=>'IOWaiting'},
         ]
       },

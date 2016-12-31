@@ -66,6 +66,20 @@ The solution will create the following data types:
 
 ...more doc and samples to be added
 
+##How to remove the solution
+
+Currently the solution cannot be removed from UI, this is an ARM provider limitation that will be lifted in the future.
+While the generic solution can be removed from the the Azure [portal](https://portal.azure.com) in the Log Analytics workspace balde, under solutions, the view cannot.
+The easiest way to remove the entire solution today is to use [armclient](https://github.com/projectkudu/ARMClient):
+
+~~~
+armclient login
+armclient delete "https://management.azure.com/subscriptions/{your subscription Id}/resourceGroups/{your resource group name}/providers/Microsoft.OperationsManagement/solutions/Kemp Application Delivery?api-version=2015-11-01-preview"
+armclient delete "https://management.azure.com/subscriptions/{your subscription Id}/resourceGroups/{your resource group name}/providers/Microsoft.OperationalInsights/workspaces/{your workspace name}/views/Kemp Application Delivery?api-version=2015-11-01-preview"
+~~~
+
+You can get the {your subscription Id}, {your resource group name} and {your workspace name} from the Azure portal.
+
 ##Debug
 
 ...todo
