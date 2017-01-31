@@ -15,21 +15,29 @@ require_relative 'oms_common'
 class KempDevice
 
   #Open points
-#- shell I use instance methods instead of class methods? The former are useful if I implement some sort of caching. So let's start with class methods and revert to instance methods once we have caching
+#- shell I use instance methods instead of class methods? The former are useful if I implement some sort of caching. 
+#So let's start with class methods and revert to instance methods once we have caching
 
     attr_accessor :timeout
     attr_accessor :retries
     attr_accessor :wait_secs
+    attr_accessor :username
+    attr_accessor :password
+    attr_accessor :name
+
     @@log =  Logger.new(STDERR) #nil
     @@log.formatter = proc do |severity, time, progname, msg|
         "#{time} #{severity} #{msg}\n"
     end
 
 
-    def initialize(refresh_interval_seconds=60)
-      @timeout=30
-      @retries=3
-      @wait_secs=2
+    def initialize(device_name, username, password, retries=3, wait_sec=2, timeout=30, refresh_interval_seconds=60)
+      @timeout=timeout
+      @retries=retries
+      @wait_secs=wait_sec
+      @name=device_name
+      @username=username
+      @password=password
       @vs_map={}
       @subvs_map={}
       @rs_map={}
@@ -38,9 +46,16 @@ class KempDevice
       @cache_lock = Mutex.new
       @refresh_interval_seconds = refresh_interval_seconds
       @condition = ConditionVariable.new
-      @thread = Thread.new(&method(:refresh_cache))
-      
+      @stop_cache=false
+      #to be implemented in future versions
+      #@thread = Thread.new(&method(:refresh_cache))
+
     end
+
+  def destroy
+      @stop_cache = true
+      @thread.join
+  end
 
   def parse_counter(counters_hash, selector, instance, counter_label, value)
   #returns instance and value if found
@@ -100,13 +115,13 @@ class KempDevice
     res
   end
 
-  def device_info (name, user_name, user_password)
+  def device_info ()
     #tbd. create a data structure with cvommands and props to make the info gathering flexible
     props=['dfltgw', 'hamode', 'havhid', 'hastyle','backupenable','backuphost','ha1hostname','hostname','ha2hostname','serialnumber','version']
 
     #for ha1hostname better a regexp
-    @@log.debug {"device_info: getting data for #{name}"}
-    device_info = access_get(name, user_name, user_password, 'getall')
+    @@log.debug {"device_info: getting data for #{@name}"}
+    device_info = access_get('getall')
     results={}
     unless device_info.nil?
       results = device_info['Response']['Success']['Data'].select {|tag, value| props.include?(tag)}
@@ -114,7 +129,7 @@ class KempDevice
     #now get licesning info
     props=['uuid', 'LicensedUntil', 'SupportUntil', 'LicenseType','LicenseStatus','ActivationDate','ApplicaneModel','ApplianceModel']    
     @@log.debug {"device_info: getting license info for #{name}"}
-    device_info = access_get(name, user_name, user_password, 'licenseinfo')
+    device_info = access_get('licenseinfo')
     unless device_info.nil?
       results.merge!(device_info['Response']['Success']['Data'].select {|tag, value| props.include?(tag)})
     end
@@ -143,7 +158,7 @@ class KempDevice
     results
   end
 
-  def vsrs_status(name, user_name, user_password)
+  def vsrs_status()
     #return an array of hash
     # 'type': vs|rs|subvs
     # 'index':
@@ -152,7 +167,7 @@ class KempDevice
     # 'parentname'
     # 'status'
     # 'address' 
-    load_maps(name,user_name,user_password)
+    load_maps()
     results=[]
     @vs_map.each {|key, value|
       results.push (
@@ -175,15 +190,13 @@ class KempDevice
   end
 
 
-  def device_perf (name, user_name, user_password,counters_map)
+  def device_perf (counters_map)
 
     #open points
     #- objects naming, shall I try to use standard names (like "Processor") or make it clear it's a Kemp object? In LA we don't have much status right now, just the Computer/Host name can join the counter to other data sets
     #- we must set meaningful naming for VS and RS instances, this means getting all the VSs and RSs, this should be cached
     #we must return an array of objects with the following pseduo schema
     #{
-    #"Timestamp": {"type": "string"},
-    #"Host": {"type": "string"},
     #"ObjectName": {"type": "string"},
     #"InstanceName": {"type": "string"},
     #"Collections": {
@@ -272,12 +285,12 @@ class KempDevice
   end #device_perf
 
   private
-    def access_get (name, user_name, user_password, command)    
+    def access_get (command)    
       #@@log.debug {"device_rest: getting data for #{name}"}
 
-      uri=URI("https://#{name}/access/#{command}")    
+      uri=URI("https://#{@name}/access/#{command}")    
       req=Net::HTTP::Get.new(uri)
-      req.basic_auth(user_name, user_password)
+      req.basic_auth(@username, @password)
       http= Net::HTTP.new(uri.hostname, uri.port)
       http.use_ssl=true
       http.read_timeout=@timeout
@@ -300,11 +313,11 @@ class KempDevice
       result
     end   
 
-    def load_maps(name, user_name, user_password)
-      device_info = access_get(name, user_name, user_password, 'listvs')
+    def load_maps()
+      device_info = access_get('listvs')
 
       if device_info.nil?
-          raise "Error getting VS list from #{name}"
+          raise "Error getting VS list from #{@name}"
       end
       #now we must build a VS and subVS hash, this should be cached
       #right now let's implement a ctach all
@@ -376,7 +389,7 @@ class KempDevice
     end  
 
     def refresh_cache
-      while true
+      while @stop_cache == false
         @cache_lock.synchronize {
           @condition.wait(@cache_lock, @refresh_interval_seconds)
           # Flush the cache completely to prevent it from growing indefinitly

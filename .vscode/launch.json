@@ -9,6 +9,13 @@
       "program": "${workspaceRoot}/LocalOnly/testkemplib.rb"
     },
     {
+      "name": "Thread",
+      "type": "Ruby",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "program": "${workspaceRoot}/LocalOnly/testthread.rb"
+    },    
+    {
       "name": "Listen for rdebug-ide",
       "type": "Ruby",
       "request": "attach",
