@@ -1,0 +1,24 @@
+<Response stat="200" code="ok">
+<Success>
+<Data>
+<VSTotals>
+<Total>7</Total>
+<Up>7</Up>
+<Down>0</Down>
+<Disabled>0</Disabled>
+</VSTotals>
+<SUBVSTotals>
+<Total>27</Total>
+<Up>27</Up>
+<Down>0</Down>
+<Disabled>0</Disabled>
+</SUBVSTotals>
+<RSTotals>
+<Total>54</Total>
+<Up>54</Up>
+<Down>0</Down>
+<Disabled>0</Disabled>
+</RSTotals>
+</Data>
+</Success>
+</Response>
