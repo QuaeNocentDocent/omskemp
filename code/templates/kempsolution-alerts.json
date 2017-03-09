@@ -1,0 +1,245 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "omsLogAnalyticsWorkspaceName": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Create new or refer to an existing OMS Log Analytics Workspace"
+            }
+        }
+    },
+    "variables": {
+        "omsSolutions": {
+            "customSolution": {
+                //"name": "Kemp Application Delivery",
+                "viewName": "KempApplicationDelivery",
+                //must be without spaces
+                "solutionName": "[concat('KempApplicationDelivery', '[', parameters('omsLogAnalyticsWorkspaceName'), ']')]",
+                "publisher": "QND",
+                "displayName": "Kemp Application Delivery",
+                "description": "Monitor and analyze your Kemp Application Delivery devices",
+                "author": "daniele.grandini@live.it",
+                "version": "1",
+                "product": "OMSGallery/KempApplicationDelivery"
+            }
+        },        
+        "omsLogAnalyticsAPIVersion": "2015-11-01-preview", //2017-03-03-preview",
+        "querytemplateuri": "https//rawcontent.github.com",
+        "location": "[resourceGroup().location]",
+        "deploymentsApiVersion": "2016-07-01",
+        "savedSearchesCategory": "Kemp Application Delivery by QND",
+        "alertArray": [
+            {
+                "alertName": "KEMP - Device license is about to expire",                    
+                "description": "The license for the device is about to expire, renew the license or your device will stop working",
+                "severity": "Critical",
+                "enabled": true,                    
+                "searchName": "Alert - Device License Expiring",
+                "searchCategory": "[variables('savedSearchesCategory')]",
+                "query": "Type:KempDevice_CL LicensedUntil_t < NOW+2MONTH | dedup Computer",
+                "alertTresholdValue": 0,
+                "operator": "gt",
+                "alertThrottleInMinutes": 0,
+                "scheduleIntervalInMinutes": 60,
+                "scheduleQueryTimeSpan": 60,
+                "scheduleType":"Normal",
+                "scheduleTypeSpecified": true,
+                "nearRealTime": false,
+                "version":1
+            }
+        ],
+        "alertMetricArray": [
+            {
+                "alertName": "KEMP - Virtual Server (VS) not operational",
+                "description": "The VS status is not Up this means the service provided by this VS is not available",
+                "severity": "Critical",
+                "enabled": true,                
+                "searchName": "Alert - Virtual Server (VS) not operational",
+                "searchCategory": "[variables('savedSearchesCategory')]",
+                "query": "Type:KempStatus_CL (servertype_s=vs OR servertype_s=subvs) enabled_s=Y AND (status_s != Up OR status_s != Redir) | measure count() by Computer, name_s interval 10minutes",
+                "alertTresholdValue": 0,
+                "operator": "gt",
+                "alertThrottleInMinutes": 0,
+                "scheduleIntervalInMinutes": 5,
+                "scheduleQueryTimeSpan": 15,
+                "triggerCondition":"Total",
+                "triggerOperator": "gt",
+                "triggerValue": 0,
+                "scheduleType":"Normal",
+                "scheduleTypeSpecified": true,
+                "nearRealTime": false,
+                "version": 1
+            },
+            {
+                "alertName": "KEMP - TPS approaching the device capacity",
+                "description": "The current load in TPS is approaching the device limit. Take action to avoid service disruption",
+                "severity": "Critical",
+                "enabled": false,
+                "searchName": "Alert - TPS approaching device limit",
+                "searchCategory": "[variables('savedSearchesCategory')]",
+                "query": "Type:Perf ObjectName=KempLM-TPS CounterName=\"Total TPS\" | measure max(CounterValue) by Computer interval 15MINUTE",
+                "alertTresholdValue": 0,
+                "operator": "gt",
+                "alertThrottleInMinutes": 0,
+                "scheduleIntervalInMinutes": 15,
+                "scheduleQueryTimeSpan": 60,
+                "triggerCondition":"Total",
+                "triggerOperator": "gt",
+                "triggerValue": 190,
+                "scheduleType":"Normal",
+                "scheduleTypeSpecified": true,
+                "nearRealTime": false,
+                "version": 1
+            }
+        ]        
+    },
+    "resources": [
+// Loops for alert declaration
+        {
+            "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+            "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
+            "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/', tolower(variables('alertArray')[copyIndex()].searchCategory), '|', toLower(variables('alertArray')[copyIndex()].searchName))]",
+            "copy": {
+                "name": "savedsearchcopy",
+                "count": "[length(variables('alertArray'))]"
+            },
+            "dependsOn": [
+            ],
+            "properties": {
+                "etag": "*",
+                "query": "[variables('alertArray')[copyIndex()].query]",
+                "displayName": "[variables('alertArray')[copyIndex()].searchName]",
+                "category": "[variables('alertArray')[copyIndex()].searchCategory]",
+                "version": "[variables('alertArray')[copyIndex()].version]"
+            }
+        },
+        {
+            "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+            "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
+            "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/', tolower(variables('alertMetricArray')[copyIndex()].searchCategory), '|', toLower(variables('alertMetricArray')[copyIndex()].searchName))]",
+            "copy": {
+                "name": "savedsearchcopy",
+                "count": "[length(variables('alertMetricArray'))]"
+            },
+            "dependsOn": [
+            ],
+            "properties": {
+                "etag": "*",
+                "query": "[variables('alertMetricArray')[copyIndex()].query]",
+                "displayName": "[variables('alertMetricArray')[copyIndex()].searchName]",
+                "category": "[variables('alertMetricArray')[copyIndex()].searchCategory]",
+                "version": "[variables('alertMetricArray')[copyIndex()].version]"                
+            }
+        },
+        {
+            "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/', tolower(variables('alertArray')[copyIndex()].searchCategory), '|', toLower(variables('alertArray')[copyIndex()].searchName), '/','schedule-',uniqueString(resourceGroup().id, deployment().name,parameters('omsLogAnalyticsWorkspaceName'), '/', variables('alertArray')[copyIndex()].searchCategory, '|', variables('alertArray')[copyIndex()].searchName))]",
+            "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules",
+            "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+            "location": "[variables('location')]",
+            "copy": {
+                "name": "schedulescopy",
+                "count": "[length(variables('alertArray'))]"
+            },
+            "dependsOn": [
+                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/savedSearches/', tolower(variables('alertArray')[copyIndex()].searchCategory), '|', toLower(variables('alertArray')[copyIndex()].searchName))]"
+            ],
+            "properties": {
+                "etag": "*",
+                "Interval": "[variables('alertArray')[copyIndex()].scheduleIntervalInMinutes]",
+                "QueryTimeSpan": "[variables('alertArray')[copyIndex()].scheduleQueryTimeSpan]",
+                "enabled": "[variables('alertArray')[copyIndex()].enabled]",
+                "NearRealTime": "[variables('alertArray')[copyIndex()].nearRealTime]"
+            }
+        },
+        {
+            "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/', tolower(variables('alertMetricArray')[copyIndex()].searchCategory), '|', toLower(variables('alertMetricArray')[copyIndex()].searchName), '/','schedule-',uniqueString(resourceGroup().id, deployment().name,parameters('omsLogAnalyticsWorkspaceName'), '/', variables('alertMetricArray')[copyIndex()].searchCategory, '|', variables('alertMetricArray')[copyIndex()].searchName))]",
+            "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules",
+            "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+            "location": "[variables('location')]",            
+            "copy": {
+                "name": "schedulescopy",
+                "count": "[length(variables('alertMetricArray'))]"
+            },
+            "dependsOn": [
+                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/savedSearches/', tolower(variables('alertMetricArray')[copyIndex()].searchCategory), '|', toLower(variables('alertMetricArray')[copyIndex()].searchName))]"
+            ],
+            "properties": {
+                "etag": "*",
+                "Interval": "[variables('alertMetricArray')[copyIndex()].scheduleIntervalInMinutes]",
+                "QueryTimeSpan": "[variables('alertMetricArray')[copyIndex()].scheduleQueryTimeSpan]",
+                "enabled": "[variables('alertMetricArray')[copyIndex()].enabled]",
+                "NearRealTime": "[variables('alertMetricArray')[copyIndex()].nearRealTime]"
+
+            }
+        },
+        {
+            "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/', tolower(variables('alertArray')[copyIndex()].searchCategory), '|', toLower(variables('alertArray')[copyIndex()].searchName), '/','schedule-',uniqueString(resourceGroup().id, deployment().name,parameters('omsLogAnalyticsWorkspaceName'), '/', variables('alertArray')[copyIndex()].searchCategory, '|', variables('alertArray')[copyIndex()].searchName), '/', 'alert-',uniqueString(resourceGroup().id, deployment().name,parameters('omsLogAnalyticsWorkspaceName'), '/', variables('alertArray')[copyIndex()].searchCategory, '|', variables('alertArray')[copyIndex()].searchName))]",
+            "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
+            "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+            "location": "[variables('location')]",        
+            "copy": {
+                "name": "actioncopy",
+                "count": "[length(variables('alertArray'))]"
+            },
+            "dependsOn": [
+                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/savedSearches/', tolower(variables('alertArray')[copyIndex()].searchCategory), '|', toLower(variables('alertArray')[copyIndex()].searchName))]",
+                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/savedSearches/', tolower(variables('alertArray')[copyIndex()].searchCategory), '|', toLower(variables('alertArray')[copyIndex()].searchName), '/schedules/','schedule-',uniqueString(resourceGroup().id, deployment().name,parameters('omsLogAnalyticsWorkspaceName'), '/', variables('alertArray')[copyIndex()].searchCategory, '|', variables('alertArray')[copyIndex()].searchName))]"
+            ],
+            "properties": {
+                "etag": "*",
+                "Type": "Alert",
+                "Name": "[variables('alertArray')[copyIndex()].alertName]",
+                "Description": "[variables('alertArray')[copyIndex()].description]",
+                "Severity": "[variables('alertArray')[copyIndex()].severity]",
+                "Throttling": {
+                "DurationInMinutes": "[variables('alertArray')[copyIndex()].alertThrottleInMinutes]"
+                },
+                "Threshold": {
+                "Operator": "[variables('alertArray')[copyIndex()].operator]",
+                "Value": "[variables('alertArray')[copyIndex()].alertTresholdValue]"
+                },
+                "ScheduleType": "[variables('alertArray')[copyIndex()].scheduleType]",
+                "ScheduleTypeSpecified": "[variables('alertArray')[copyIndex()].scheduleTypeSpecified]",
+                "Version": "[variables('alertArray')[copyIndex()].version]"
+            }
+        },
+        {
+        "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/', tolower(variables('alertMetricArray')[copyIndex()].searchCategory), '|', toLower(variables('alertMetricArray')[copyIndex()].searchName), '/','schedule-',uniqueString(resourceGroup().id, deployment().name,parameters('omsLogAnalyticsWorkspaceName'), '/', variables('alertMetricArray')[copyIndex()].searchCategory, '|', variables('alertMetricArray')[copyIndex()].searchName), '/', 'alert-',uniqueString(resourceGroup().id, deployment().name,parameters('omsLogAnalyticsWorkspaceName'), '/', variables('alertMetricArray')[copyIndex()].searchCategory, '|', variables('alertMetricArray')[copyIndex()].searchName))]",
+        "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
+        "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+        "copy": {
+            "name": "actioncopy",
+            "count": "[length(variables('alertMetricArray'))]"
+        },
+        "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/savedSearches/', tolower(variables('alertMetricArray')[copyIndex()].searchCategory), '|', toLower(variables('alertMetricArray')[copyIndex()].searchName))]",
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/savedSearches/', tolower(variables('alertMetricArray')[copyIndex()].searchCategory), '|', toLower(variables('alertMetricArray')[copyIndex()].searchName), '/schedules/','schedule-',uniqueString(resourceGroup().id, deployment().name,parameters('omsLogAnalyticsWorkspaceName'), '/', variables('alertMetricArray')[copyIndex()].searchCategory, '|', variables('alertMetricArray')[copyIndex()].searchName))]"
+        ],
+        "properties": {
+            "etag": "*",
+            "Type": "Alert",
+            "Name": "[variables('alertMetricArray')[copyIndex()].alertName]",
+            "Description": "[variables('alertMetricArray')[copyIndex()].description]",
+            "Severity": "[variables('alertMetricArray')[copyIndex()].severity]",
+            "Throttling": {
+            "DurationInMinutes": "[variables('alertMetricArray')[copyIndex()].alertThrottleInMinutes]"
+            },
+            "Threshold": {
+                "Operator": "[variables('alertMetricArray')[copyIndex()].operator]",
+                "Value": "[variables('alertMetricArray')[copyIndex()].alertTresholdValue]",
+                "MetricsTrigger": {
+                    "TriggerCondition": "[variables('alertMetricArray')[copyIndex()].triggerCondition]",
+                    "Operator": "[variables('alertMetricArray')[copyIndex()].triggerOperator]",
+                    "Value": "[variables('alertMetricArray')[copyIndex()].triggerValue]"
+                }
+            },
+            "ScheduleType": "[variables('alertMetricArray')[copyIndex()].scheduleType]",
+            "ScheduleTypeSpecified": "[variables('alertMetricArray')[copyIndex()].scheduleTypeSpecified]",
+            "Version": "[variables('alertMetricArray')[copyIndex()].version]"            
+        }
+        }        
+    ],
+    "outputs": {}
+}
