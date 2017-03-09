@@ -738,7 +738,7 @@
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
-          "omsLogAnalyticsWorkspaceName":{"value":"[parameters(omsLogAnalyticsWorkspaceName)]"}
+          "omsLogAnalyticsWorkspaceName":{"value":"[parameters('omsLogAnalyticsWorkspaceName')]"}
         }
       }
     }   
