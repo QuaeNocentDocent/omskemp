@@ -719,7 +719,8 @@
                 "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
                 "referencedResources": [],
                 "containedResources": [
-                "[resourceId('Microsoft.OperationalInsights/workspaces/views/', parameters('omsLogAnalyticsWorkspaceName'), variables('omsSolutions').customSolution.viewName)]"
+                "[resourceId('Microsoft.OperationalInsights/workspaces/views/', parameters('omsLogAnalyticsWorkspaceName'), variables('omsSolutions').customSolution.viewName)]",
+                "[resourceId('Microsoft.Resources/deployments/', 'AlertTest1')]"
                 ]
             }
         },
