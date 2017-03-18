@@ -13,9 +13,8 @@
     "variables": {
         "omsSolutions": {
             "customSolution": {
-                //"name": "Kemp Application Delivery",
                 "viewName": "KempApplicationDelivery",
-                //must be without spaces
+                //must be without spaces, cannot use () 'cause they're reserved by MS
                 "solutionName": "[concat('KempApplicationDelivery', '[', parameters('omsLogAnalyticsWorkspaceName'), ']')]",
                 "publisher": "QND",
                 "displayName": "Kemp Application Delivery",
@@ -58,7 +57,7 @@
                 "enabled": true,                
                 "searchName": "Alert - Virtual Server (VS) not operational",
                 "searchCategory": "[variables('savedSearchesCategory')]",
-                "query": "Type:KempStatus_CL (servertype_s=vs OR servertype_s=subvs) enabled_s=Y AND (status_s != Up OR status_s != Redir) | measure count() by Computer, name_s interval 10minutes",
+                "query": "Type:KempStatus_CL (servertype_s=vs OR servertype_s=subvs) enabled_s=Y AND (status_s != Up AND status_s != Redirect) | measure count() by Computer, name_s interval 10minutes",
                 "alertTresholdValue": 0,
                 "operator": "gt",
                 "alertThrottleInMinutes": 0,
@@ -108,17 +107,13 @@
        {
             "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
             "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/' ,variables('omsSolutions').customSolution.viewName)]",
-            "type": "Microsoft.OperationalInsights/workspaces/views",
-            //"name": "[variables('omsSolutions').customSolution.name]",
-            //"type": "views",            
+            "type": "Microsoft.OperationalInsights/workspaces/views",        
             "location": "[resourceGroup().location]",
-            //"id": "[Concat(subscription().id, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/views/', variables('omsSolutions').customSolution.name)]",
             "id": "[resourceId('Microsoft.OperationalInsights/workspaces/views/', parameters('omsLogAnalyticsWorkspaceName'), variables('omsSolutions').customSolution.viewName)]",            
             "dependson": [
                 "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]"
             ],
             "properties": {
-                //"Id": "[variables('omsSolutions').customSolution.name]",
                 "Name": "[variables('omsSolutions').customSolution.viewName]",
                 "displayName": "[variables('omsSolutions').customSolution.displayName]",
                 "Description": "[variables('omsSolutions').customSolution.description]",
@@ -634,7 +629,7 @@
                                 }
                             },
                             "List": {
-                                "Query": "Type:KempStatus_CL (servertype_s=vs OR servertype_s=subvs) enabled_s=\"Y\"  status_s!=\"Up\" | select name_s, status_s | dedup name_s",
+                                "Query": "Type:KempStatus_CL (servertype_s=vs OR servertype_s=subvs) enabled_s=\"Y\" AND (status_s!=\"Up\" AND status_s!=\"Redirect\") | select name_s, status_s | dedup name_s",
                                 "HideGraph": false,
                                 "enableSparklines": false,
                                 "ColumnsTitle": {
@@ -704,7 +699,13 @@
             "location": "[variables('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
-                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/views/', variables('omsSolutions').customSolution.viewName)]"
+                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/views/', variables('omsSolutions').customSolution.viewName)]",
+                "savedsearchcopy",
+                "schedulescopy",
+                "savedsearchcopyMetric",
+                "schedulescopyMetric",
+                "actioncopy",
+                "actioncopyMetric"
             ],
             "plan": {
                 "name": "[variables('omsSolutions').customSolution.solutionName]",
@@ -718,6 +719,13 @@
                 "referencedResources": [],
                 "containedResources": [
                 "[resourceId('Microsoft.OperationalInsights/workspaces/views/', parameters('omsLogAnalyticsWorkspaceName'), variables('omsSolutions').customSolution.viewName)]"
+                /* this doesn't work,
+                "savedsearchcopy",
+                "schedulescopy",
+                "savedsearchcopyMetric",
+                "schedulescopyMetric",
+                "actioncopy",
+                "actioncopyMetric"*/
                 ]
             }
         },
@@ -747,7 +755,7 @@
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
             "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/', tolower(variables('alertMetricArray')[copyIndex()].searchCategory), '|', toLower(variables('alertMetricArray')[copyIndex()].searchName))]",
             "copy": {
-                "name": "savedsearchcopy",
+                "name": "savedsearchcopyMetric",
                 "count": "[length(variables('alertMetricArray'))]"
             },
             "dependsOn": [
@@ -790,7 +798,7 @@
             "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
             "location": "[variables('location')]",            
             "copy": {
-                "name": "schedulescopy",
+                "name": "schedulescopyMetric",
                 "count": "[length(variables('alertMetricArray'))]"
             },
             "dependsOn": [
@@ -845,7 +853,7 @@
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
         "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
         "copy": {
-            "name": "actioncopy",
+            "name": "actioncopyMetric",
             "count": "[length(variables('alertMetricArray'))]"
         },
         "dependsOn": [

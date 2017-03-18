@@ -24,8 +24,12 @@ Rake::TestTask.new(:prerequisites) do
   end
 end
 
-commons=["#{ENV['BASE_DIR']}/test/lib/plugins"]
+cur_dir=File.dirname(__FILE__).split('/')
+cur_dir.delete_at(cur_dir.count-1)
+ENV['BASE_DIR']=cur_dir.join('/')
 
+commons=["#{ENV['BASE_DIR']}/test/lib/plugins"]
+puts Dir["#{ENV['BASE_DIR']}/test/**/*_test.rb"].sort
 desc 'Run test_unit based test'
 Rake::TestTask.new(:base_test) do |t|
   t.libs = commons

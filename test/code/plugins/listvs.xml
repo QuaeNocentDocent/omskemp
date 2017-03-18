@@ -6,7 +6,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>40</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-sac.asmn.net</NickName>
+<NickName>ws-qq-sac.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -32,7 +32,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-sac.asmn.net</CheckHost>
+<CheckHost>ws-qq-sac.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -90,7 +90,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>39</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-printmanager.asmn.net</NickName>
+<NickName>ws-qq-printmanager.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -116,7 +116,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-printmanager.asmn.net</CheckHost>
+<CheckHost>ws-qq-printmanager.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -174,7 +174,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>38</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-printdispatcher.asmn.net</NickName>
+<NickName>ws-qq-printdispatcher.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -200,7 +200,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-printdispatcher.asmn.net</CheckHost>
+<CheckHost>ws-qq-printdispatcher.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -258,7 +258,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>37</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-oe.asmn.net</NickName>
+<NickName>ws-qq-oe.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -284,8 +284,8 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckUrl>/WS-DI-OE-1/OE.Wcf.DataAccess.OrderEntry.svc</CheckUrl>
-<CheckHost>ws-di-oe.asmn.net</CheckHost>
+<CheckUrl>/WS-qq-OE-1/OE.Wcf.DataAccess.OrderEntry.svc</CheckUrl>
+<CheckHost>ws-qq-oe.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -343,7 +343,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>35</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-dwh.asmn.net</NickName>
+<NickName>ws-qq-HWD.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -369,7 +369,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-dwh.asmn.net</CheckHost>
+<CheckHost>ws-qq-HWD.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -427,7 +427,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>4</Index>
 <VSPort>0</VSPort>
-<NickName>Giotto.asmn.net Webservice</NickName>
+<NickName>cotto.qnd.local Webservice</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -454,7 +454,7 @@ This XML file does not appear to have any style information associated with it. 
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
 <CheckUrl>/PersonAdministrationServiceSAC.asmx</CheckUrl>
-<CheckHost>giotto.asmn.net</CheckHost>
+<CheckHost>cotto.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>1</CheckUseGet>
@@ -473,7 +473,7 @@ This XML file does not appear to have any style information associated with it. 
 <NResponseRules>0</NResponseRules>
 <NPreProcessRules>1</NPreProcessRules>
 <PreProcessRules>
-<Name>Giotto</Name>
+<Name>cotto</Name>
 </PreProcessRules>
 <EspEnabled>N</EspEnabled>
 <InputAuthMode>0</InputAuthMode>
@@ -517,7 +517,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>5</Index>
 <VSPort>0</VSPort>
-<NickName>GiottoPersonAdmin Website</NickName>
+<NickName>cottoPersonAdmin Website</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -544,7 +544,7 @@ This XML file does not appear to have any style information associated with it. 
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
 <CheckUrl>/isonline.html</CheckUrl>
-<CheckHost>GiottoPersonAdmin.asmn.net</CheckHost>
+<CheckHost>cottoPersonAdmin.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -562,7 +562,7 @@ This XML file does not appear to have any style information associated with it. 
 <NResponseRules>0</NResponseRules>
 <NPreProcessRules>1</NPreProcessRules>
 <PreProcessRules>
-<Name>GiottoPersonAdmin</Name>
+<Name>cottoPersonAdmin</Name>
 </PreProcessRules>
 <EspEnabled>N</EspEnabled>
 <InputAuthMode>0</InputAuthMode>
@@ -606,7 +606,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>6</Index>
 <VSPort>0</VSPort>
-<NickName>MedOffice Website</NickName>
+<NickName>Dement Website</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -633,7 +633,7 @@ This XML file does not appear to have any style information associated with it. 
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
 <CheckUrl>/Agenda/isonline.html</CheckUrl>
-<CheckHost>medsoffice.asmn.net</CheckHost>
+<CheckHost>dements.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -651,7 +651,7 @@ This XML file does not appear to have any style information associated with it. 
 <NResponseRules>0</NResponseRules>
 <NPreProcessRules>1</NPreProcessRules>
 <PreProcessRules>
-<Name>MedsOffice</Name>
+<Name>dements</Name>
 </PreProcessRules>
 <EspEnabled>N</EspEnabled>
 <InputAuthMode>0</InputAuthMode>
@@ -695,7 +695,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>7</Index>
 <VSPort>0</VSPort>
-<NickName>Infoclin Website</NickName>
+<NickName>infocin Website</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -721,8 +721,8 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckUrl>/InfoClinSMNCardio/IsOnline.html</CheckUrl>
-<CheckHost>infoclin.asmn.net</CheckHost>
+<CheckUrl>/infocinQQQCardio/IsOnline.html</CheckUrl>
+<CheckHost>infocin.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -740,7 +740,7 @@ This XML file does not appear to have any style information associated with it. 
 <NResponseRules>0</NResponseRules>
 <NPreProcessRules>1</NPreProcessRules>
 <PreProcessRules>
-<Name>InfoClin</Name>
+<Name>infocin</Name>
 </PreProcessRules>
 <EspEnabled>N</EspEnabled>
 <InputAuthMode>0</InputAuthMode>
@@ -784,7 +784,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>8</Index>
 <VSPort>0</VSPort>
-<NickName>WebPianiTerapeutici Website</NickName>
+<NickName>WebMySelf Website</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -811,7 +811,7 @@ This XML file does not appear to have any style information associated with it. 
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
 <CheckUrl>/isonline.html</CheckUrl>
-<CheckHost>webpianiterapeutici.asmn.net</CheckHost>
+<CheckHost>WebMySelf.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -829,7 +829,7 @@ This XML file does not appear to have any style information associated with it. 
 <NResponseRules>0</NResponseRules>
 <NPreProcessRules>1</NPreProcessRules>
 <PreProcessRules>
-<Name>WebPianiTerapeutici</Name>
+<Name>WebMySelf</Name>
 </PreProcessRules>
 <EspEnabled>N</EspEnabled>
 <InputAuthMode>0</InputAuthMode>
@@ -873,7 +873,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>9</Index>
 <VSPort>0</VSPort>
-<NickName>WebProposteRicovero Website</NickName>
+<NickName>WebSayBye Website</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -900,7 +900,7 @@ This XML file does not appear to have any style information associated with it. 
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
 <CheckUrl>/isonline.html</CheckUrl>
-<CheckHost>webpropostericovero.asmn.net</CheckHost>
+<CheckHost>webSayBye.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -918,7 +918,7 @@ This XML file does not appear to have any style information associated with it. 
 <NResponseRules>0</NResponseRules>
 <NPreProcessRules>1</NPreProcessRules>
 <PreProcessRules>
-<Name>WebProposteRicovero</Name>
+<Name>WebSayBye</Name>
 </PreProcessRules>
 <EspEnabled>N</EspEnabled>
 <InputAuthMode>0</InputAuthMode>
@@ -962,7 +962,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>11</Index>
 <VSPort>0</VSPort>
-<NickName>FastDRG2</NickName>
+<NickName>FFFFDRG2</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -988,7 +988,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>FastDRG2.asmn.net</CheckHost>
+<CheckHost>FFFFDRG2.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>1</CheckUseGet>
@@ -1046,7 +1046,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>12</Index>
 <VSPort>0</VSPort>
-<NickName>FastDRG2_Integrazioni WebService</NickName>
+<NickName>FFFFDRG2_Integrazioni WebService</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -1073,7 +1073,7 @@ This XML file does not appear to have any style information associated with it. 
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
 <CheckUrl>/Integrazioni.svc</CheckUrl>
-<CheckHost>FastDRG2_Integrazioni.asmn.net</CheckHost>
+<CheckHost>FFFFDRG2_Integrazioni.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>1</CheckUseGet>
@@ -1158,7 +1158,7 @@ This XML file does not appear to have any style information associated with it. 
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
 <CheckUrl>/AnatNetWS.asmx</CheckUrl>
-<CheckHost>AnatNetWs.asmn.net</CheckHost>
+<CheckHost>AnatNetWs.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>1</CheckUseGet>
@@ -1243,7 +1243,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>antibnetws_test.asmn.net</CheckHost>
+<CheckHost>antibnetws_test.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>1</CheckUseGet>
@@ -1302,7 +1302,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>41</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-hpv.asmn.net</NickName>
+<NickName>ws-qq-hpv.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -1328,8 +1328,8 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckUrl>/WS-DI-HPV-1/DI.HPV.Service.Service.svc</CheckUrl>
-<CheckHost>ws-di-hpv.asmn.net</CheckHost>
+<CheckUrl>/WS-qq-HPV-1/DI.HPV.Service.Service.svc</CheckUrl>
+<CheckHost>ws-qq-hpv.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -1414,7 +1414,7 @@ This XML file does not appear to have any style information associated with it. 
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
 <CheckUrl>/screening/IsOnline.html</CheckUrl>
-<CheckHost>screening.asmn.net</CheckHost>
+<CheckHost>screening.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>1</CheckUseGet>
@@ -1473,7 +1473,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>81</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-dwh.asmn.net - HTTP</NickName>
+<NickName>ws-qq-HWD.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -1499,7 +1499,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-dwh.asmn.net</CheckHost>
+<CheckHost>ws-qq-HWD.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -1557,7 +1557,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>82</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-oe.asmn.net - HTTP</NickName>
+<NickName>ws-qq-oe.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -1583,8 +1583,8 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckUrl>/WS-DI-OE-1/OE.Wcf.DataAccess.OrderEntry.svc</CheckUrl>
-<CheckHost>ws-di-oe.asmn.net</CheckHost>
+<CheckUrl>/WS-qq-OE-1/OE.Wcf.DataAccess.OrderEntry.svc</CheckUrl>
+<CheckHost>ws-qq-oe.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -1642,7 +1642,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>83</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-printdispatcher.asmn.net - HTTP</NickName>
+<NickName>ws-qq-printdispatcher.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -1668,7 +1668,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-printdispatcher.asmn.net</CheckHost>
+<CheckHost>ws-qq-printdispatcher.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -1726,7 +1726,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>84</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-printmanager.asmn.net - HTTP</NickName>
+<NickName>ws-qq-printmanager.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -1752,7 +1752,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-printmanager.asmn.net</CheckHost>
+<CheckHost>ws-qq-printmanager.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -1810,7 +1810,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>85</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-sac.asmn.net - HTTP</NickName>
+<NickName>ws-qq-sac.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -1836,7 +1836,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-sac.asmn.net</CheckHost>
+<CheckHost>ws-qq-sac.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -1894,7 +1894,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>86</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-hpv.asmn.net - HTTP</NickName>
+<NickName>ws-qq-hpv.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -1920,8 +1920,8 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckUrl>/WS-DI-HPV-1/DI.HPV.Service.Service.svc</CheckUrl>
-<CheckHost>ws-di-hpv.asmn.net</CheckHost>
+<CheckUrl>/WS-qq-HPV-1/DI.HPV.Service.Service.svc</CheckUrl>
+<CheckHost>ws-qq-hpv.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -1979,7 +1979,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>97</Index>
 <VSPort>0</VSPort>
-<NickName>DI-Go.ausl.org</NickName>
+<NickName>QQ-Go.ausl.org</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -2005,7 +2005,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>DI-Go.ausl.org</CheckHost>
+<CheckHost>QQ-Go.ausl.org</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -2063,7 +2063,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>98</Index>
 <VSPort>0</VSPort>
-<NickName>DINEW.ausl.org</NickName>
+<NickName>NEW.ausl.org</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -2089,7 +2089,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>DINEW.ausl.org</CheckHost>
+<CheckHost>NEW.ausl.org</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -2231,7 +2231,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>100</Index>
 <VSPort>0</VSPort>
-<NickName>Dwh-clinico.ausl.org</NickName>
+<NickName>HWD-ccc.ausl.org</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -2399,7 +2399,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>102</Index>
 <VSPort>0</VSPort>
-<NickName>DI-Go.ausl.org - HTTP</NickName>
+<NickName>QQ-Go.ausl.org - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -2425,7 +2425,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>DI-Go.ausl.org</CheckHost>
+<CheckHost>QQ-Go.ausl.org</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -2483,7 +2483,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>103</Index>
 <VSPort>0</VSPort>
-<NickName>DINEW.ausl.org - HTTP</NickName>
+<NickName>NEW.ausl.org - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -2509,7 +2509,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>DINEW.ausl.org</CheckHost>
+<CheckHost>NEW.ausl.org</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -2651,7 +2651,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>105</Index>
 <VSPort>0</VSPort>
-<NickName>dwh-clinico.ausl.org - HTTP</NickName>
+<NickName>HWD-ccc.ausl.org - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -2819,7 +2819,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>107</Index>
 <VSPort>0</VSPort>
-<NickName>DI-PortalAdmin.asmn.net</NickName>
+<NickName>QQ-PortalAdmin.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -2845,7 +2845,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>DI-PortalAdmin.asmn.net</CheckHost>
+<CheckHost>QQ-PortalAdmin.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -2903,7 +2903,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>108</Index>
 <VSPort>0</VSPort>
-<NickName>DI-Go.asmn.net</NickName>
+<NickName>QQ-Go.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -2929,7 +2929,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>DI-Go.asmn.net</CheckHost>
+<CheckHost>QQ-Go.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -2987,7 +2987,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>109</Index>
 <VSPort>0</VSPort>
-<NickName>DINEW.asmn.net</NickName>
+<NickName>NEW.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -3013,7 +3013,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>DINEW.asmn.net</CheckHost>
+<CheckHost>NEW.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -3071,7 +3071,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>110</Index>
 <VSPort>0</VSPort>
-<NickName>DI.asmn.net</NickName>
+<NickName>DI.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -3097,7 +3097,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>DI.asmn.net</CheckHost>
+<CheckHost>DI.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -3155,7 +3155,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>111</Index>
 <VSPort>0</VSPort>
-<NickName>dwh-clinico-mmg.asmn.net</NickName>
+<NickName>HWD-ccc-mmg.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -3181,7 +3181,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>dwh-clinico-mmg.asmn.net</CheckHost>
+<CheckHost>HWD-ccc-mmg.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -3239,7 +3239,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>112</Index>
 <VSPort>0</VSPort>
-<NickName>etichette-lab.asmn.net</NickName>
+<NickName>Eti-lab.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -3265,7 +3265,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>etichette-lab.asmn.net</CheckHost>
+<CheckHost>Eti-lab.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -3323,7 +3323,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>113</Index>
 <VSPort>0</VSPort>
-<NickName>PVueMotion.asmn.net</NickName>
+<NickName>PvMotion.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -3349,7 +3349,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>PVueMotion.asmn.net</CheckHost>
+<CheckHost>PvMotion.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -3407,7 +3407,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>114</Index>
 <VSPort>0</VSPort>
-<NickName>dwh-clinico.asmn.net</NickName>
+<NickName>HWD-ccc.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -3433,7 +3433,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>DI.asmn.net</CheckHost>
+<CheckHost>DI.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -3491,7 +3491,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>115</Index>
 <VSPort>0</VSPort>
-<NickName>SAC.asmn.net</NickName>
+<NickName>SAC.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -3517,7 +3517,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>DI.asmn.net</CheckHost>
+<CheckHost>DI.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -3575,7 +3575,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>116</Index>
 <VSPort>0</VSPort>
-<NickName>DI-PortalAdmin.asmn.net - HTTP</NickName>
+<NickName>QQ-PortalAdmin.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -3601,7 +3601,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>DI-PortalAdmin.asmn.net</CheckHost>
+<CheckHost>QQ-PortalAdmin.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -3659,7 +3659,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>117</Index>
 <VSPort>0</VSPort>
-<NickName>DI-Go.asmn.net - HTTP</NickName>
+<NickName>QQ-Go.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -3685,7 +3685,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>DI-Go.asmn.net</CheckHost>
+<CheckHost>QQ-Go.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -3743,7 +3743,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>118</Index>
 <VSPort>0</VSPort>
-<NickName>DINEW.asmn.net - HTTP</NickName>
+<NickName>NEW.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -3769,7 +3769,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>DINEW.asmn.net</CheckHost>
+<CheckHost>NEW.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -3827,7 +3827,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>119</Index>
 <VSPort>0</VSPort>
-<NickName>DI.asmn.net - HTTP</NickName>
+<NickName>DI.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -3853,7 +3853,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>DI.asmn.net</CheckHost>
+<CheckHost>DI.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -3911,7 +3911,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>120</Index>
 <VSPort>0</VSPort>
-<NickName>dwh-clinico-mmg.asmn.net - HTTP</NickName>
+<NickName>HWD-ccc-mmg.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -3937,7 +3937,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>dwh-clinico-mmg.asmn.net</CheckHost>
+<CheckHost>HWD-ccc-mmg.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -3995,7 +3995,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>121</Index>
 <VSPort>0</VSPort>
-<NickName>etichette-lab.asmn.net - HTTP</NickName>
+<NickName>Eti-lab.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -4021,7 +4021,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>etichette-lab.asmn.net</CheckHost>
+<CheckHost>Eti-lab.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -4079,7 +4079,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>122</Index>
 <VSPort>0</VSPort>
-<NickName>PVueMotion.asmn.net - HTTP</NickName>
+<NickName>PvMotion.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -4105,7 +4105,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>PVueMotion.asmn.net</CheckHost>
+<CheckHost>PvMotion.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -4163,7 +4163,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>123</Index>
 <VSPort>0</VSPort>
-<NickName>Dwh-clinico.asmn.net - HTTP</NickName>
+<NickName>HWD-ccc.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -4189,7 +4189,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>DI.asmn.net</CheckHost>
+<CheckHost>DI.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -4247,7 +4247,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>124</Index>
 <VSPort>0</VSPort>
-<NickName>SAC.asmn.net - HTTP</NickName>
+<NickName>SAC.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -4273,7 +4273,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>DI.asmn.net</CheckHost>
+<CheckHost>DI.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -4331,7 +4331,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>179</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-btdwh.asmn.net - HTTP - METAFORA Fraseggio</NickName>
+<NickName>ws-qq-btHWD.qnd.local - HTTP - METAFORA Fraseggio</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -4358,9 +4358,9 @@ This XML file does not appear to have any style information associated with it. 
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
 <CheckUrl>
-/DwhConn.BT.Metafora.Fraseggio/FraseggioInputKey.svc
+/HWDConn.BT.Metafora.Fraseggio/FraseggioInputKey.svc
 </CheckUrl>
-<CheckHost>ws-di-btdwh.asmn.net</CheckHost>
+<CheckHost>ws-qq-btHWD.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>1</CheckUseGet>
@@ -4418,7 +4418,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>178</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-btsac.asmn.net - HTTP - LHA Notifiche</NickName>
+<NickName>ws-qq-btsac.qnd.local - HTTP - LHA Notifiche</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -4445,7 +4445,7 @@ This XML file does not appear to have any style information associated with it. 
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
 <CheckUrl>/Sac.BT.LHA/WS_Movimenti.svc</CheckUrl>
-<CheckHost>ws-di-btsac.asmn.net</CheckHost>
+<CheckHost>ws-qq-btsac.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>1</CheckUseGet>
@@ -4503,7 +4503,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>176</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-btiissac.asmn.net - HTTP</NickName>
+<NickName>ws-qq-btiissac.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -4529,7 +4529,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-btiissac.asmn.net</CheckHost>
+<CheckHost>ws-qq-btiissac.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -4587,7 +4587,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>175</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-btiisdwh.asmn.net - HTTP</NickName>
+<NickName>ws-qq-btiisHWD.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -4613,7 +4613,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-btiisdwh.asmn.net</CheckHost>
+<CheckHost>ws-qq-btiisHWD.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -4671,7 +4671,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>174</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-btiisoe.asmn.net - HTTP</NickName>
+<NickName>ws-qq-btiisoe.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -4697,7 +4697,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-btiisoe.asmn.net</CheckHost>
+<CheckHost>ws-qq-btiisoe.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -4755,7 +4755,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>173</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-btiissole.asmn.net - HTTP</NickName>
+<NickName>ws-qq-btiissole.qnd.local - HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -4781,7 +4781,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-btiissole.asmn.net</CheckHost>
+<CheckHost>ws-qq-btiissole.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -4839,7 +4839,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>170</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-btsole.asmn.net - SOLE PATIENTSUMMARY</NickName>
+<NickName>ws-qq-btsole.qnd.local - SOLE PATIENTSUMMARY</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -4866,9 +4866,9 @@ This XML file does not appear to have any style information associated with it. 
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
 <CheckUrl>
-/Sole.DwhClinico.PatientSummary/SOLE.Wcf.BtDataAccess.PatientSummary.svc
+/Sole.HWDccc.PatientSummary/SOLE.Wcf.BtDataAccess.PatientSummary.svc
 </CheckUrl>
-<CheckHost>ws-di-btsole.asmn.net</CheckHost>
+<CheckHost>ws-qq-btsole.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -4926,7 +4926,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Down</Status>
 <Index>169</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-btdwh.asmn.net - METAFORA Fraseggio</NickName>
+<NickName>ws-qq-btHWD.qnd.local - METAFORA Fraseggio</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -4953,9 +4953,9 @@ This XML file does not appear to have any style information associated with it. 
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
 <CheckUrl>
-/DwhConn.BT.Metafora.Fraseggio/FraseggioInputKey.svc
+/HWDConn.BT.Metafora.Fraseggio/FraseggioInputKey.svc
 </CheckUrl>
-<CheckHost>ws-di-btdwh.asmn.net</CheckHost>
+<CheckHost>ws-qq-btHWD.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>1</CheckUseGet>
@@ -5013,7 +5013,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Down</Status>
 <Index>168</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-btoe.asmn.net - ELIOT Stati</NickName>
+<NickName>ws-qq-btoe.qnd.local - ELIOT Stati</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -5040,7 +5040,7 @@ This XML file does not appear to have any style information associated with it. 
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
 <CheckUrl>/OeBtSitOrcStato/RicezioneEliot.svc</CheckUrl>
-<CheckHost>ws-di-btoe.asmn.net</CheckHost>
+<CheckHost>ws-qq-btoe.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>1</CheckUseGet>
@@ -5098,7 +5098,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Down</Status>
 <Index>167</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-btsac.asmn.net - LHA Notifiche</NickName>
+<NickName>ws-qq-btsac.qnd.local - LHA Notifiche</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -5125,7 +5125,7 @@ This XML file does not appear to have any style information associated with it. 
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
 <CheckUrl>/Sac.BT.LHA/WS_Movimenti.svc</CheckUrl>
-<CheckHost>ws-di-btsac.asmn.net</CheckHost>
+<CheckHost>ws-qq-btsac.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>1</CheckUseGet>
@@ -5183,7 +5183,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>148</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-btiissac.asmn.net</NickName>
+<NickName>ws-qq-btiissac.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -5209,7 +5209,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-btiissac.asmn.net</CheckHost>
+<CheckHost>ws-qq-btiissac.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -5267,7 +5267,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>147</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-btiisdwh.asmn.net</NickName>
+<NickName>ws-qq-btiisHWD.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -5293,7 +5293,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-btiisdwh.asmn.net</CheckHost>
+<CheckHost>ws-qq-btiisHWD.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -5351,7 +5351,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>146</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-btiisoe.asmn.net</NickName>
+<NickName>ws-qq-btiisoe.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -5377,7 +5377,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-btiisoe.asmn.net</CheckHost>
+<CheckHost>ws-qq-btiisoe.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -5435,7 +5435,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>145</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-btiissole.asmn.net</NickName>
+<NickName>ws-qq-btiissole.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -5461,7 +5461,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-btiissole.asmn.net</CheckHost>
+<CheckHost>ws-qq-btiissole.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -5519,7 +5519,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>144</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-sole-test.asmn.net</NickName>
+<NickName>ws-qq-sole-test.qnd.local</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -5545,7 +5545,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-sole-test.asmn.net</CheckHost>
+<CheckHost>ws-qq-sole-test.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -5603,7 +5603,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>138</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-hpv.asmn.net - HTTPS</NickName>
+<NickName>ws-qq-hpv.qnd.local - HTTPS</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -5629,8 +5629,8 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckUrl>/WS-DI-HPV-1/DI.HPV.Service.Service.svc</CheckUrl>
-<CheckHost>ws-di-hpv.asmn.net</CheckHost>
+<CheckUrl>/WS-qq-HPV-1/DI.HPV.Service.Service.svc</CheckUrl>
+<CheckHost>ws-qq-hpv.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -5688,7 +5688,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>137</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-sac.asmn.net - HTTPS</NickName>
+<NickName>ws-qq-sac.qnd.local - HTTPS</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -5714,7 +5714,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-sac.asmn.net</CheckHost>
+<CheckHost>ws-qq-sac.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -5772,7 +5772,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>136</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-printmanager.asmn.net - HTTPS</NickName>
+<NickName>ws-qq-printmanager.qnd.local - HTTPS</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -5798,7 +5798,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-printmanager.asmn.net</CheckHost>
+<CheckHost>ws-qq-printmanager.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -5856,7 +5856,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>135</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-printdispatcher.asmn.net - HTTPS</NickName>
+<NickName>ws-qq-printdispatcher.qnd.local - HTTPS</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -5882,7 +5882,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-printdispatcher.asmn.net</CheckHost>
+<CheckHost>ws-qq-printdispatcher.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -5940,7 +5940,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>134</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-oe.asmn.net - HTTPS</NickName>
+<NickName>ws-qq-oe.qnd.local - HTTPS</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -5966,8 +5966,8 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckUrl>/WS-DI-OE-1/OE.Wcf.DataAccess.OrderEntry.svc</CheckUrl>
-<CheckHost>ws-di-oe.asmn.net</CheckHost>
+<CheckUrl>/WS-qq-OE-1/OE.Wcf.DataAccess.OrderEntry.svc</CheckUrl>
+<CheckHost>ws-qq-oe.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -6025,7 +6025,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>133</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-dwh.asmn.net - HTTPS</NickName>
+<NickName>ws-qq-HWD.qnd.local - HTTPS</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -6051,7 +6051,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-dwh.asmn.net</CheckHost>
+<CheckHost>ws-qq-HWD.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -6109,7 +6109,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>131</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-hpv.asmn.net-HTTP</NickName>
+<NickName>ws-qq-hpv.qnd.local-HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -6135,8 +6135,8 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckUrl>/WS-DI-HPV-1/DI.HPV.Service.Service.svc</CheckUrl>
-<CheckHost>ws-di-hpv.asmn.net</CheckHost>
+<CheckUrl>/WS-qq-HPV-1/DI.HPV.Service.Service.svc</CheckUrl>
+<CheckHost>ws-qq-hpv.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -6194,7 +6194,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>130</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-sac.asmn.net-HTTP</NickName>
+<NickName>ws-qq-sac.qnd.local-HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -6220,7 +6220,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-sac.asmn.net</CheckHost>
+<CheckHost>ws-qq-sac.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -6278,7 +6278,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>129</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-printmanager.asmn.net-HTTP</NickName>
+<NickName>ws-qq-printmanager.qnd.local-HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -6304,7 +6304,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-printmanager.asmn.net</CheckHost>
+<CheckHost>ws-qq-printmanager.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -6362,7 +6362,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>128</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-printdispatcher.asmn.net-HTTP</NickName>
+<NickName>ws-qq-printdispatcher.qnd.local-HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -6388,7 +6388,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-printdispatcher.asmn.net</CheckHost>
+<CheckHost>ws-qq-printdispatcher.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -6446,7 +6446,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>127</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-oe.asmn.net-HTTP</NickName>
+<NickName>ws-qq-oe.qnd.local-HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -6472,8 +6472,8 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckUrl>/WS-DI-OE-1/OE.Wcf.DataAccess.OrderEntry.svc</CheckUrl>
-<CheckHost>ws-di-oe.asmn.net</CheckHost>
+<CheckUrl>/WS-qq-OE-1/OE.Wcf.DataAccess.OrderEntry.svc</CheckUrl>
+<CheckHost>ws-qq-oe.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -6531,7 +6531,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <Index>126</Index>
 <VSPort>0</VSPort>
-<NickName>ws-di-dwh.asmn.net-HTTP</NickName>
+<NickName>ws-qq-HWD.qnd.local-HTTP</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -6557,7 +6557,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-di-dwh.asmn.net</CheckHost>
+<CheckHost>ws-qq-HWD.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -6655,24 +6655,24 @@ This XML file does not appear to have any style information associated with it. 
 <CheckPort>0</CheckPort>
 <NRules>7</NRules>
 <MatchRules>
-<Name>Giotto</Name>
-<Name>GiottoPersonAdmin</Name>
-<Name>MedsOffice</Name>
-<Name>InfoClin</Name>
-<Name>WebPianiTerapeutici</Name>
-<Name>WebProposteRicovero</Name>
+<Name>cotto</Name>
+<Name>cottoPersonAdmin</Name>
+<Name>dements</Name>
+<Name>infocin</Name>
+<Name>WebMySelf</Name>
+<Name>WebSayBye</Name>
 <Name>Screening</Name>
 </MatchRules>
 <NRequestRules>0</NRequestRules>
 <NResponseRules>0</NResponseRules>
 <NPreProcessRules>7</NPreProcessRules>
 <PreProcessRules>
-<Name>Giotto</Name>
-<Name>GiottoPersonAdmin</Name>
-<Name>MedsOffice</Name>
-<Name>InfoClin</Name>
-<Name>WebPianiTerapeutici</Name>
-<Name>WebProposteRicovero</Name>
+<Name>cotto</Name>
+<Name>cottoPersonAdmin</Name>
+<Name>dements</Name>
+<Name>infocin</Name>
+<Name>WebMySelf</Name>
+<Name>WebSayBye</Name>
 <Name>Screening</Name>
 </PreProcessRules>
 <EspEnabled>N</EspEnabled>
@@ -6691,7 +6691,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>4</VSIndex>
 <RsIndex>4</RsIndex>
-<Name>Giotto.asmn.net Webservice</Name>
+<Name>cotto.qnd.local Webservice</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -6699,14 +6699,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>Giotto</Name>
+<Name>cotto</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>5</VSIndex>
 <RsIndex>7</RsIndex>
-<Name>GiottoPersonAdmin Website</Name>
+<Name>cottoPersonAdmin Website</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -6714,14 +6714,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>GiottoPersonAdmin</Name>
+<Name>cottoPersonAdmin</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>6</VSIndex>
 <RsIndex>10</RsIndex>
-<Name>MedOffice Website</Name>
+<Name>Dement Website</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -6729,14 +6729,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>MedsOffice</Name>
+<Name>dements</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>7</VSIndex>
 <RsIndex>11</RsIndex>
-<Name>Infoclin Website</Name>
+<Name>infocin Website</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -6744,14 +6744,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>InfoClin</Name>
+<Name>infocin</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>8</VSIndex>
 <RsIndex>12</RsIndex>
-<Name>WebPianiTerapeutici Website</Name>
+<Name>WebMySelf Website</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -6759,14 +6759,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>WebPianiTerapeutici</Name>
+<Name>WebMySelf</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>9</VSIndex>
 <RsIndex>19</RsIndex>
-<Name>WebProposteRicovero Website</Name>
+<Name>WebSayBye Website</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -6774,7 +6774,7 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>WebProposteRicovero</Name>
+<Name>WebSayBye</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
@@ -6956,7 +6956,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>11</VSIndex>
 <RsIndex>22</RsIndex>
-<Name>FastDRG2</Name>
+<Name>FFFFDRG2</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -6967,7 +6967,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>12</VSIndex>
 <RsIndex>23</RsIndex>
-<Name>FastDRG2_Integrazioni WebService</Name>
+<Name>FFFFDRG2_Integrazioni WebService</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -6980,7 +6980,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>68</Index>
 <VSAddress>172.20.3.118</VSAddress>
 <VSPort>80</VSPort>
-<NickName>DI - ASMN HTTP Web Server Farm - Affinity</NickName>
+<NickName>DI - AQQQ HTTP Web Server Farm - Affinity</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -7019,14 +7019,14 @@ This XML file does not appear to have any style information associated with it. 
 <CheckPort>0</CheckPort>
 <NRules>9</NRules>
 <MatchRules>
-<Name>DIPortalAdmin</Name>
-<Name>DI_GO_ASMN</Name>
-<Name>DINew_ASMN</Name>
-<Name>DI_ASMN</Name>
-<Name>DWHClinicoMMG</Name>
-<Name>EtichetteLAB</Name>
-<Name>PVueMotion</Name>
-<Name>DWH_Clinico</Name>
+<Name>PortalAdmin</Name>
+<Name>DI_GO_AQQQ</Name>
+<Name>NEW_AQQQ</Name>
+<Name>DI_AQQQ</Name>
+<Name>HWDcccMMG</Name>
+<Name>EtiLAB</Name>
+<Name>PvMotion</Name>
+<Name>HWD_ccc</Name>
 <Name>SAC</Name>
 </MatchRules>
 <NRequestRules>0</NRequestRules>
@@ -7048,7 +7048,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>116</VSIndex>
 <RsIndex>312</RsIndex>
-<Name>DI-PortalAdmin.asmn.net - HTTP</Name>
+<Name>QQ-PortalAdmin.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7056,14 +7056,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>DIPortalAdmin</Name>
+<Name>PortalAdmin</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>117</VSIndex>
 <RsIndex>315</RsIndex>
-<Name>DI-Go.asmn.net - HTTP</Name>
+<Name>QQ-Go.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7071,14 +7071,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>DI_GO_ASMN</Name>
+<Name>DI_GO_AQQQ</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>118</VSIndex>
 <RsIndex>316</RsIndex>
-<Name>DINEW.asmn.net - HTTP</Name>
+<Name>NEW.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7086,14 +7086,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>DINew_ASMN</Name>
+<Name>NEW_AQQQ</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>119</VSIndex>
 <RsIndex>321</RsIndex>
-<Name>DI.asmn.net - HTTP</Name>
+<Name>DI.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7101,14 +7101,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>DI_ASMN</Name>
+<Name>DI_AQQQ</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>120</VSIndex>
 <RsIndex>324</RsIndex>
-<Name>dwh-clinico-mmg.asmn.net - HTTP</Name>
+<Name>HWD-ccc-mmg.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7116,14 +7116,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>DWHClinicoMMG</Name>
+<Name>HWDcccMMG</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>121</VSIndex>
 <RsIndex>327</RsIndex>
-<Name>etichette-lab.asmn.net - HTTP</Name>
+<Name>Eti-lab.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7131,14 +7131,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>EtichetteLAB</Name>
+<Name>EtiLAB</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>122</VSIndex>
 <RsIndex>330</RsIndex>
-<Name>PVueMotion.asmn.net - HTTP</Name>
+<Name>PvMotion.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7146,14 +7146,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>PVueMotion</Name>
+<Name>PvMotion</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>123</VSIndex>
 <RsIndex>333</RsIndex>
-<Name>Dwh-clinico.asmn.net - HTTP</Name>
+<Name>HWD-ccc.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7161,14 +7161,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>DWH_Clinico</Name>
+<Name>HWD_ccc</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>124</VSIndex>
 <RsIndex>336</RsIndex>
-<Name>SAC.asmn.net - HTTP</Name>
+<Name>SAC.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7185,7 +7185,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>17</Index>
 <VSAddress>172.20.3.118</VSAddress>
 <VSPort>443</VSPort>
-<NickName>DI - ASMN HTTPS Web Server Farm - Affinity</NickName>
+<NickName>DI - AQQQ HTTPS Web Server Farm - Affinity</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>Y</SSLReencrypt>
@@ -7211,7 +7211,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CertFile>Wildcard-asmn.net</CertFile>
+<CertFile>Wildcard-aQQQ.net</CertFile>
 <CheckUse1.1>N</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -7226,14 +7226,14 @@ This XML file does not appear to have any style information associated with it. 
 <CheckPort>0</CheckPort>
 <NRules>9</NRules>
 <MatchRules>
-<Name>DIPortalAdmin</Name>
-<Name>DI_GO_ASMN</Name>
-<Name>DINew_ASMN</Name>
-<Name>DI_ASMN</Name>
-<Name>DWHClinicoMMG</Name>
-<Name>EtichetteLAB</Name>
-<Name>PVueMotion</Name>
-<Name>DWH_Clinico</Name>
+<Name>PortalAdmin</Name>
+<Name>DI_GO_AQQQ</Name>
+<Name>NEW_AQQQ</Name>
+<Name>DI_AQQQ</Name>
+<Name>HWDcccMMG</Name>
+<Name>EtiLAB</Name>
+<Name>PvMotion</Name>
+<Name>HWD_ccc</Name>
 <Name>SAC</Name>
 </MatchRules>
 <NRequestRules>0</NRequestRules>
@@ -7256,7 +7256,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>107</VSIndex>
 <RsIndex>285</RsIndex>
-<Name>DI-PortalAdmin.asmn.net</Name>
+<Name>QQ-PortalAdmin.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7264,14 +7264,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>DIPortalAdmin</Name>
+<Name>PortalAdmin</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>108</VSIndex>
 <RsIndex>288</RsIndex>
-<Name>DI-Go.asmn.net</Name>
+<Name>QQ-Go.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7279,14 +7279,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>DI_GO_ASMN</Name>
+<Name>DI_GO_AQQQ</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>109</VSIndex>
 <RsIndex>291</RsIndex>
-<Name>DINEW.asmn.net</Name>
+<Name>NEW.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7294,14 +7294,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>DINew_ASMN</Name>
+<Name>NEW_AQQQ</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>110</VSIndex>
 <RsIndex>294</RsIndex>
-<Name>DI.asmn.net</Name>
+<Name>DI.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7309,14 +7309,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>DI_ASMN</Name>
+<Name>DI_AQQQ</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>111</VSIndex>
 <RsIndex>297</RsIndex>
-<Name>dwh-clinico-mmg.asmn.net</Name>
+<Name>HWD-ccc-mmg.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7324,14 +7324,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>DWHClinicoMMG</Name>
+<Name>HWDcccMMG</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>112</VSIndex>
 <RsIndex>300</RsIndex>
-<Name>etichette-lab.asmn.net</Name>
+<Name>Eti-lab.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7339,14 +7339,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>EtichetteLAB</Name>
+<Name>EtiLAB</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>113</VSIndex>
 <RsIndex>303</RsIndex>
-<Name>PVueMotion.asmn.net</Name>
+<Name>PvMotion.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7354,14 +7354,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>PVueMotion</Name>
+<Name>PvMotion</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>114</VSIndex>
 <RsIndex>306</RsIndex>
-<Name>dwh-clinico.asmn.net</Name>
+<Name>HWD-ccc.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7369,14 +7369,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>DWH_Clinico</Name>
+<Name>HWD_ccc</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>115</VSIndex>
 <RsIndex>309</RsIndex>
-<Name>SAC.asmn.net</Name>
+<Name>SAC.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7433,9 +7433,9 @@ This XML file does not appear to have any style information associated with it. 
 <NRules>4</NRules>
 <MatchRules>
 <Name>DI_GO_AUSL</Name>
-<Name>DINew_AUSL</Name>
+<Name>NEW_AUSL</Name>
 <Name>DI_AUSL</Name>
-<Name>DWH_Clinico_AUSL</Name>
+<Name>HWD_ccc_AUSL</Name>
 </MatchRules>
 <NRequestRules>0</NRequestRules>
 <NResponseRules>0</NResponseRules>
@@ -7456,7 +7456,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>102</VSIndex>
 <RsIndex>270</RsIndex>
-<Name>DI-Go.ausl.org - HTTP</Name>
+<Name>QQ-Go.ausl.org - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7471,7 +7471,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>103</VSIndex>
 <RsIndex>273</RsIndex>
-<Name>DINEW.ausl.org - HTTP</Name>
+<Name>NEW.ausl.org - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7479,7 +7479,7 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>DINew_AUSL</Name>
+<Name>NEW_AUSL</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
@@ -7501,7 +7501,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>105</VSIndex>
 <RsIndex>279</RsIndex>
-<Name>dwh-clinico.ausl.org - HTTP</Name>
+<Name>HWD-ccc.ausl.org - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7509,7 +7509,7 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>DWH_Clinico_AUSL</Name>
+<Name>HWD_ccc_AUSL</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
@@ -7571,9 +7571,9 @@ This XML file does not appear to have any style information associated with it. 
 <NRules>5</NRules>
 <MatchRules>
 <Name>DI_GO_AUSL</Name>
-<Name>DINew_AUSL</Name>
+<Name>NEW_AUSL</Name>
 <Name>DI_AUSL</Name>
-<Name>DWH_Clinico_AUSL</Name>
+<Name>HWD_ccc_AUSL</Name>
 <Name>SAC_AUSL</Name>
 </MatchRules>
 <NRequestRules>0</NRequestRules>
@@ -7596,7 +7596,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>97</VSIndex>
 <RsIndex>255</RsIndex>
-<Name>DI-Go.ausl.org</Name>
+<Name>QQ-Go.ausl.org</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7611,7 +7611,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>98</VSIndex>
 <RsIndex>258</RsIndex>
-<Name>DINEW.ausl.org</Name>
+<Name>NEW.ausl.org</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7619,7 +7619,7 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>DINew_AUSL</Name>
+<Name>NEW_AUSL</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
@@ -7641,7 +7641,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>100</VSIndex>
 <RsIndex>264</RsIndex>
-<Name>Dwh-clinico.ausl.org</Name>
+<Name>HWD-ccc.ausl.org</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7649,7 +7649,7 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>DWH_Clinico_AUSL</Name>
+<Name>HWD_ccc_AUSL</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
@@ -7673,7 +7673,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>80</Index>
 <VSAddress>172.20.3.120</VSAddress>
 <VSPort>80</VSPort>
-<NickName>DI - ASMN HTTP Web Server Farm - No Affinity</NickName>
+<NickName>DI - AQQQ HTTP Web Server Farm - No Affinity</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -7712,7 +7712,7 @@ This XML file does not appear to have any style information associated with it. 
 <CheckPort>0</CheckPort>
 <NRules>6</NRules>
 <MatchRules>
-<Name>WS_DI_DWH</Name>
+<Name>WS_DI_HWD</Name>
 <Name>WS_DI_OE</Name>
 <Name>WS_DI_PrintDispatcher</Name>
 <Name>WS_DI_PrintManager</Name>
@@ -7738,7 +7738,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>81</VSIndex>
 <RsIndex>209</RsIndex>
-<Name>ws-di-dwh.asmn.net - HTTP</Name>
+<Name>ws-qq-HWD.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7746,14 +7746,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>WS_DI_DWH</Name>
+<Name>WS_DI_HWD</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>82</VSIndex>
 <RsIndex>212</RsIndex>
-<Name>ws-di-oe.asmn.net - HTTP</Name>
+<Name>ws-qq-oe.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7768,7 +7768,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>83</VSIndex>
 <RsIndex>215</RsIndex>
-<Name>ws-di-printdispatcher.asmn.net - HTTP</Name>
+<Name>ws-qq-printdispatcher.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7783,7 +7783,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>84</VSIndex>
 <RsIndex>218</RsIndex>
-<Name>ws-di-printmanager.asmn.net - HTTP</Name>
+<Name>ws-qq-printmanager.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7798,7 +7798,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>85</VSIndex>
 <RsIndex>221</RsIndex>
-<Name>ws-di-sac.asmn.net - HTTP</Name>
+<Name>ws-qq-sac.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7813,7 +7813,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>86</VSIndex>
 <RsIndex>224</RsIndex>
-<Name>ws-di-hpv.asmn.net - HTTP</Name>
+<Name>ws-qq-hpv.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7830,7 +7830,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>34</Index>
 <VSAddress>172.20.3.120</VSAddress>
 <VSPort>443</VSPort>
-<NickName>DI - ASMN HTTPS Web Server Farm - No Affinity</NickName>
+<NickName>DI - AQQQ HTTPS Web Server Farm - No Affinity</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>Y</SSLReencrypt>
@@ -7856,7 +7856,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CertFile>Wildcard-asmn.net</CertFile>
+<CertFile>Wildcard-aQQQ.net</CertFile>
 <CheckUse1.1>N</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -7871,7 +7871,7 @@ This XML file does not appear to have any style information associated with it. 
 <CheckPort>0</CheckPort>
 <NRules>6</NRules>
 <MatchRules>
-<Name>WS_DI_DWH</Name>
+<Name>WS_DI_HWD</Name>
 <Name>WS_DI_OE</Name>
 <Name>WS_DI_PrintDispatcher</Name>
 <Name>WS_DI_PrintManager</Name>
@@ -7898,7 +7898,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>35</VSIndex>
 <RsIndex>87</RsIndex>
-<Name>ws-di-dwh.asmn.net</Name>
+<Name>ws-qq-HWD.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7906,14 +7906,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>WS_DI_DWH</Name>
+<Name>WS_DI_HWD</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>37</VSIndex>
 <RsIndex>89</RsIndex>
-<Name>ws-di-oe.asmn.net</Name>
+<Name>ws-qq-oe.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7928,7 +7928,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>38</VSIndex>
 <RsIndex>90</RsIndex>
-<Name>ws-di-printdispatcher.asmn.net</Name>
+<Name>ws-qq-printdispatcher.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7943,7 +7943,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>39</VSIndex>
 <RsIndex>91</RsIndex>
-<Name>ws-di-printmanager.asmn.net</Name>
+<Name>ws-qq-printmanager.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7958,7 +7958,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>40</VSIndex>
 <RsIndex>92</RsIndex>
-<Name>ws-di-sac.asmn.net</Name>
+<Name>ws-qq-sac.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7973,7 +7973,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>41</VSIndex>
 <RsIndex>106</RsIndex>
-<Name>ws-di-hpv.asmn.net</Name>
+<Name>ws-qq-hpv.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -7990,7 +7990,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>125</Index>
 <VSAddress>172.20.3.121</VSAddress>
 <VSPort>80</VSPort>
-<NickName>DI - ASMN HTTP Web Services - No Affinity</NickName>
+<NickName>DI - AQQQ HTTP Web Services - No Affinity</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -8029,7 +8029,7 @@ This XML file does not appear to have any style information associated with it. 
 <CheckPort>0</CheckPort>
 <NRules>6</NRules>
 <MatchRules>
-<Name>WS_DI_DWH</Name>
+<Name>WS_DI_HWD</Name>
 <Name>WS_DI_OE</Name>
 <Name>WS_DI_PrintDispatcher</Name>
 <Name>WS_DI_PrintManager</Name>
@@ -8055,7 +8055,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>126</VSIndex>
 <RsIndex>339</RsIndex>
-<Name>ws-di-dwh.asmn.net-HTTP</Name>
+<Name>ws-qq-HWD.qnd.local-HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8063,14 +8063,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>WS_DI_DWH</Name>
+<Name>WS_DI_HWD</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>127</VSIndex>
 <RsIndex>342</RsIndex>
-<Name>ws-di-oe.asmn.net-HTTP</Name>
+<Name>ws-qq-oe.qnd.local-HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8085,7 +8085,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>128</VSIndex>
 <RsIndex>345</RsIndex>
-<Name>ws-di-printdispatcher.asmn.net-HTTP</Name>
+<Name>ws-qq-printdispatcher.qnd.local-HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8100,7 +8100,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>129</VSIndex>
 <RsIndex>348</RsIndex>
-<Name>ws-di-printmanager.asmn.net-HTTP</Name>
+<Name>ws-qq-printmanager.qnd.local-HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8115,7 +8115,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>130</VSIndex>
 <RsIndex>351</RsIndex>
-<Name>ws-di-sac.asmn.net-HTTP</Name>
+<Name>ws-qq-sac.qnd.local-HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8130,7 +8130,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>131</VSIndex>
 <RsIndex>354</RsIndex>
-<Name>ws-di-hpv.asmn.net-HTTP</Name>
+<Name>ws-qq-hpv.qnd.local-HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8147,7 +8147,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>132</Index>
 <VSAddress>172.20.3.121</VSAddress>
 <VSPort>443</VSPort>
-<NickName>DI - ASMN HTTPS Web Services - No Affinity</NickName>
+<NickName>DI - AQQQ HTTPS Web Services - No Affinity</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>Y</SSLReencrypt>
@@ -8173,7 +8173,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CertFile>Wildcard-asmn.net</CertFile>
+<CertFile>Wildcard-aQQQ.net</CertFile>
 <CheckUse1.1>N</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -8188,7 +8188,7 @@ This XML file does not appear to have any style information associated with it. 
 <CheckPort>0</CheckPort>
 <NRules>6</NRules>
 <MatchRules>
-<Name>WS_DI_DWH</Name>
+<Name>WS_DI_HWD</Name>
 <Name>WS_DI_OE</Name>
 <Name>WS_DI_PrintDispatcher</Name>
 <Name>WS_DI_PrintManager</Name>
@@ -8215,7 +8215,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>133</VSIndex>
 <RsIndex>357</RsIndex>
-<Name>ws-di-dwh.asmn.net - HTTPS</Name>
+<Name>ws-qq-HWD.qnd.local - HTTPS</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8223,14 +8223,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>WS_DI_DWH</Name>
+<Name>WS_DI_HWD</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>134</VSIndex>
 <RsIndex>360</RsIndex>
-<Name>ws-di-oe.asmn.net - HTTPS</Name>
+<Name>ws-qq-oe.qnd.local - HTTPS</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8245,7 +8245,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>135</VSIndex>
 <RsIndex>363</RsIndex>
-<Name>ws-di-printdispatcher.asmn.net - HTTPS</Name>
+<Name>ws-qq-printdispatcher.qnd.local - HTTPS</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8260,7 +8260,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>136</VSIndex>
 <RsIndex>366</RsIndex>
-<Name>ws-di-printmanager.asmn.net - HTTPS</Name>
+<Name>ws-qq-printmanager.qnd.local - HTTPS</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8275,7 +8275,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>137</VSIndex>
 <RsIndex>369</RsIndex>
-<Name>ws-di-sac.asmn.net - HTTPS</Name>
+<Name>ws-qq-sac.qnd.local - HTTPS</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8290,7 +8290,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>138</VSIndex>
 <RsIndex>372</RsIndex>
-<Name>ws-di-hpv.asmn.net - HTTPS</Name>
+<Name>ws-qq-hpv.qnd.local - HTTPS</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8307,7 +8307,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>171</Index>
 <VSAddress>172.20.3.130</VSAddress>
 <VSPort>80</VSPort>
-<NickName>DI - ASMN HTTP IIS Web Server Biztalk - Affinity</NickName>
+<NickName>DI - AQQQ HTTP IIS Web Server Biztalk - Affinity</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -8348,7 +8348,7 @@ This XML file does not appear to have any style information associated with it. 
 <MatchRules>
 <Name>WS_DI_BTIISSOLE</Name>
 <Name>WS_DI_BTIISOE</Name>
-<Name>WS_DI_BTIISDWH</Name>
+<Name>WS_DI_BTIISHWD</Name>
 <Name>WS_DI_BTIISSAC</Name>
 </MatchRules>
 <NRequestRules>0</NRequestRules>
@@ -8370,7 +8370,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>173</VSIndex>
 <RsIndex>442</RsIndex>
-<Name>ws-di-btiissole.asmn.net - HTTP</Name>
+<Name>ws-qq-btiissole.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8385,7 +8385,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>174</VSIndex>
 <RsIndex>445</RsIndex>
-<Name>ws-di-btiisoe.asmn.net - HTTP</Name>
+<Name>ws-qq-btiisoe.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8400,7 +8400,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>175</VSIndex>
 <RsIndex>448</RsIndex>
-<Name>ws-di-btiisdwh.asmn.net - HTTP</Name>
+<Name>ws-qq-btiisHWD.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8408,14 +8408,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>WS_DI_BTIISDWH</Name>
+<Name>WS_DI_BTIISHWD</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>176</VSIndex>
 <RsIndex>451</RsIndex>
-<Name>ws-di-btiissac.asmn.net - HTTP</Name>
+<Name>ws-qq-btiissac.qnd.local - HTTP</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8432,7 +8432,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>42</Index>
 <VSAddress>172.20.3.130</VSAddress>
 <VSPort>443</VSPort>
-<NickName>DI - ASMN HTTPS IIS Web Server Biztalk - Affinity</NickName>
+<NickName>DI - AQQQ HTTPS IIS Web Server Biztalk - Affinity</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>Y</SSLReencrypt>
@@ -8458,7 +8458,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CertFile>Wildcard-asmn.net</CertFile>
+<CertFile>Wildcard-aQQQ.net</CertFile>
 <CheckUse1.1>N</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -8476,7 +8476,7 @@ This XML file does not appear to have any style information associated with it. 
 <Name>WS_DI_SOLE_TEST</Name>
 <Name>WS_DI_BTIISSOLE</Name>
 <Name>WS_DI_BTIISOE</Name>
-<Name>WS_DI_BTIISDWH</Name>
+<Name>WS_DI_BTIISHWD</Name>
 <Name>WS_DI_BTIISSAC</Name>
 </MatchRules>
 <NRequestRules>0</NRequestRules>
@@ -8499,7 +8499,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>144</VSIndex>
 <RsIndex>378</RsIndex>
-<Name>ws-di-sole-test.asmn.net</Name>
+<Name>ws-qq-sole-test.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8514,7 +8514,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>145</VSIndex>
 <RsIndex>381</RsIndex>
-<Name>ws-di-btiissole.asmn.net</Name>
+<Name>ws-qq-btiissole.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8529,7 +8529,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>146</VSIndex>
 <RsIndex>384</RsIndex>
-<Name>ws-di-btiisoe.asmn.net</Name>
+<Name>ws-qq-btiisoe.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8544,7 +8544,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>147</VSIndex>
 <RsIndex>387</RsIndex>
-<Name>ws-di-btiisdwh.asmn.net</Name>
+<Name>ws-qq-btiisHWD.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8552,14 +8552,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>WS_DI_BTIISDWH</Name>
+<Name>WS_DI_BTIISHWD</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>148</VSIndex>
 <RsIndex>390</RsIndex>
-<Name>ws-di-btiissac.asmn.net</Name>
+<Name>ws-qq-btiissac.qnd.local</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8576,7 +8576,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>177</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>80</VSPort>
-<NickName>DI - ASMN HTTP Web Server Biztalk - Affinity</NickName>
+<NickName>DI - AQQQ HTTP Web Server Biztalk - Affinity</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -8616,7 +8616,7 @@ This XML file does not appear to have any style information associated with it. 
 <NRules>2</NRules>
 <MatchRules>
 <Name>WS_DI_BTSAC_LHA</Name>
-<Name>WS_DI_BTDWH_METAFORAFRASEGGIO</Name>
+<Name>WS_DI_BTHWD_METAFORAFRASEGGIO</Name>
 </MatchRules>
 <NRequestRules>0</NRequestRules>
 <NResponseRules>0</NResponseRules>
@@ -8637,7 +8637,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>178</VSIndex>
 <RsIndex>454</RsIndex>
-<Name>ws-di-btsac.asmn.net - HTTP - LHA Notifiche</Name>
+<Name>ws-qq-btsac.qnd.local - HTTP - LHA Notifiche</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8652,7 +8652,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Up</Status>
 <VSIndex>179</VSIndex>
 <RsIndex>457</RsIndex>
-<Name>ws-di-btdwh.asmn.net - HTTP - METAFORA Fraseggio</Name>
+<Name>ws-qq-btHWD.qnd.local - HTTP - METAFORA Fraseggio</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8660,7 +8660,7 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>WS_DI_BTDWH_METAFORAFRASEGGIO</Name>
+<Name>WS_DI_BTHWD_METAFORAFRASEGGIO</Name>
 </MatchRules>
 </SubVS>
 </VS>
@@ -8669,7 +8669,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>166</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>443</VSPort>
-<NickName>DI - ASMN HTTPS Web Server Biztalk - Affinity</NickName>
+<NickName>DI - AQQQ HTTPS Web Server Biztalk - Affinity</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>Y</SSLReencrypt>
@@ -8695,7 +8695,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CertFile>Wildcard-asmn.net</CertFile>
+<CertFile>Wildcard-aQQQ.net</CertFile>
 <CheckUse1.1>N</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -8712,7 +8712,7 @@ This XML file does not appear to have any style information associated with it. 
 <MatchRules>
 <Name>WS_DI_BTSAC_LHA</Name>
 <Name>WS_DI_BTOE_ELIOTSTATI</Name>
-<Name>WS_DI_BTDWH_METAFORAFRASEGGIO</Name>
+<Name>WS_DI_BTHWD_METAFORAFRASEGGIO</Name>
 <Name>WS_DI_BTSOLE_SOLEPATIENTSUMMARY</Name>
 </MatchRules>
 <NRequestRules>0</NRequestRules>
@@ -8735,7 +8735,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Down</Status>
 <VSIndex>167</VSIndex>
 <RsIndex>427</RsIndex>
-<Name>ws-di-btsac.asmn.net - LHA Notifiche</Name>
+<Name>ws-qq-btsac.qnd.local - LHA Notifiche</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8750,7 +8750,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Down</Status>
 <VSIndex>168</VSIndex>
 <RsIndex>430</RsIndex>
-<Name>ws-di-btoe.asmn.net - ELIOT Stati</Name>
+<Name>ws-qq-btoe.qnd.local - ELIOT Stati</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8765,7 +8765,7 @@ This XML file does not appear to have any style information associated with it. 
 <Status>Down</Status>
 <VSIndex>169</VSIndex>
 <RsIndex>433</RsIndex>
-<Name>ws-di-btdwh.asmn.net - METAFORA Fraseggio</Name>
+<Name>ws-qq-btHWD.qnd.local - METAFORA Fraseggio</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8773,14 +8773,14 @@ This XML file does not appear to have any style information associated with it. 
 <Critical>N</Critical>
 <Nrules>1</Nrules>
 <MatchRules>
-<Name>WS_DI_BTDWH_METAFORAFRASEGGIO</Name>
+<Name>WS_DI_BTHWD_METAFORAFRASEGGIO</Name>
 </MatchRules>
 </SubVS>
 <SubVS>
 <Status>Up</Status>
 <VSIndex>170</VSIndex>
 <RsIndex>436</RsIndex>
-<Name>ws-di-btsole.asmn.net - SOLE PATIENTSUMMARY</Name>
+<Name>ws-qq-btsole.qnd.local - SOLE PATIENTSUMMARY</Name>
 <Forward>nat</Forward>
 <Weight>1000</Weight>
 <Limit>0</Limit>
@@ -8797,7 +8797,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>161</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>11001</VSPort>
-<NickName>ASMN - DI OE RIS OSU</NickName>
+<NickName>AQQQ - DI OE RIS OSU</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -8881,7 +8881,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>163</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>11002</VSPort>
-<NickName>ASMN - DI DWH RIS Referti</NickName>
+<NickName>AQQQ - DI HWD RIS Referti</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -8965,7 +8965,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>151</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>11022</VSPort>
-<NickName>ASMN - DI SAC RIS Pazienti</NickName>
+<NickName>AQQQ - DI SAC RIS Pazienti</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -9049,7 +9049,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>150</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>11031</VSPort>
-<NickName>ASMN - DI SAC RIS PazientiNotifiche</NickName>
+<NickName>AQQQ - DI SAC RIS PazientiNotifiche</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -9133,7 +9133,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>149</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>21101</VSPort>
-<NickName>ASMN - DI SAC LIS PazienteCerca</NickName>
+<NickName>AQQQ - DI SAC LIS PazienteCerca</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -9217,7 +9217,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>154</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>21102</VSPort>
-<NickName>ASMN - DI SAC LIS PazienteAggiorna</NickName>
+<NickName>AQQQ - DI SAC LIS PazienteAggiorna</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -9301,7 +9301,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>153</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>21103</VSPort>
-<NickName>ASMN - DI SAC ELIOT PazienteCerca</NickName>
+<NickName>AQQQ - DI SAC ELIOT PazienteCerca</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -9385,7 +9385,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>152</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>21104</VSPort>
-<NickName>ASMN - DI SAC ELIOT PazienteAggiorna</NickName>
+<NickName>AQQQ - DI SAC ELIOT PazienteAggiorna</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -9469,7 +9469,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>160</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>21105</VSPort>
-<NickName>ASMN - DI OE LIS OSU</NickName>
+<NickName>AQQQ - DI OE LIS OSU</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -9553,7 +9553,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>158</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>21106</VSPort>
-<NickName>ASMN - DI SAC IMS PazienteAggiorna</NickName>
+<NickName>AQQQ - DI SAC IMS PazienteAggiorna</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -9637,7 +9637,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>159</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>21107</VSPort>
-<NickName>ASMN - DI SAC IMS PazienteCerca</NickName>
+<NickName>AQQQ - DI SAC IMS PazienteCerca</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -9721,7 +9721,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>155</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>21108</VSPort>
-<NickName>ASMN - DI SAC Anthema PazienteAggiorna</NickName>
+<NickName>AQQQ - DI SAC Anthema PazienteAggiorna</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -9805,7 +9805,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>156</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>21109</VSPort>
-<NickName>ASMN - DI SAC Anthema PazienteCerca</NickName>
+<NickName>AQQQ - DI SAC Anthema PazienteCerca</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -9889,7 +9889,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>162</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>21110</VSPort>
-<NickName>ASMN - DI OE Anthema Richieste</NickName>
+<NickName>AQQQ - DI OE Anthema Richieste</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -9973,7 +9973,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>164</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>21111</VSPort>
-<NickName>ASMN - DI DWH Anthema Referti</NickName>
+<NickName>AQQQ - DI HWD Anthema Referti</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -10057,7 +10057,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>157</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>21112</VSPort>
-<NickName>ASMN - DI SAC AriaVarian PazienteCerca</NickName>
+<NickName>AQQQ - DI SAC AriaVarian PazienteCerca</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -10141,7 +10141,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>165</Index>
 <VSAddress>172.20.3.131</VSAddress>
 <VSPort>21113</VSPort>
-<NickName>ASMN - DI DWH AriaVarian Referti</NickName>
+<NickName>AQQQ - DI HWD AriaVarian Referti</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -10225,7 +10225,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>87</Index>
 <VSAddress>172.20.3.141</VSAddress>
 <VSPort>3389</VSPort>
-<NickName>ASMN - Matilde RDS</NickName>
+<NickName>AQQQ - Matilde RDS</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -10310,7 +10310,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>139</Index>
 <VSAddress>172.20.3.142</VSAddress>
 <VSPort>80</VSPort>
-<NickName>Redir ASMN - Matilde Report Manager Web Farm</NickName>
+<NickName>Redir AQQQ - Matilde Report Manager Web Farm</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -10373,7 +10373,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>96</Index>
 <VSAddress>172.20.3.142</VSAddress>
 <VSPort>443</VSPort>
-<NickName>ASMN - Matilde Report Manager Web Farm</NickName>
+<NickName>AQQQ - Matilde Report Manager Web Farm</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -10399,7 +10399,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>scci-reportviewer.asmn.net</CheckHost>
+<CheckHost>scci-reportviewer.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>
@@ -10521,7 +10521,7 @@ This XML file does not appear to have any style information associated with it. 
 <Index>142</Index>
 <VSAddress>172.20.3.143</VSAddress>
 <VSPort>443</VSPort>
-<NickName>ASMN - Matilde Web Services</NickName>
+<NickName>AQQQ - Matilde Web Services</NickName>
 <Enable>Y</Enable>
 <SSLReverse>N</SSLReverse>
 <SSLReencrypt>N</SSLReencrypt>
@@ -10547,7 +10547,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>ws-scci-diagnostic.asmn.net</CheckHost>
+<CheckHost>ws-scci-diagnostic.qnd.local</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>1</CheckUseGet>
@@ -10695,7 +10695,7 @@ This XML file does not appear to have any style information associated with it. 
 <MultiConnect>N</MultiConnect>
 <ClientCert>0</ClientCert>
 <ErrorCode>0</ErrorCode>
-<CheckHost>owa.asmn.re.it</CheckHost>
+<CheckHost>owa.aQQQ.re.it</CheckHost>
 <CheckUse1.1>Y</CheckUse1.1>
 <MatchLen>0</MatchLen>
 <CheckUseGet>0</CheckUseGet>

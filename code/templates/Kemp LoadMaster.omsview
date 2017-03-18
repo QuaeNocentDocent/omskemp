@@ -555,7 +555,7 @@
                                         }
                                     },
                                     "List": {
-                                        "Query": "Type:KempStatus_CL (servertype_s=vs OR servertype_s=subvs) enabled_s=\"Y\"  status_s!=\"Up\" | select name_s, status_s | dedup name_s",
+                                        "Query": "Type:KempStatus_CL (servertype_s=vs OR servertype_s=subvs) enabled_s=\"Y\" and (status_s!=\"Up\" and status_s!=\"Redirect\" ) | select name_s, status_s | dedup name_s",
                                         "HideGraph": false,
                                         "enableSparklines": false,
                                         "ColumnsTitle": {

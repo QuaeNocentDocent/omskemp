@@ -41,10 +41,10 @@ module Fluent
         ]
       },      
       {:object=>'Network', :instance=>'*',  :selector=>'Network.*', :counters=>[ 
-          {:counter=>'in bytes/sec', :value=>'*.inbytes'},
-          {:counter=>'out bytes/sec', :value=>'*.outbytes'},
-          {:counter=>'% bandwidth in', :value=>'*.in'},
-          {:counter=>'% bandwidth out', :value=>'*.out'}
+          {:counter=>'in bytes/sec', :value=>'inbytes'},
+          {:counter=>'out bytes/sec', :value=>'outbytes'},
+          {:counter=>'% bandwidth in', :value=>'in'},
+          {:counter=>'% bandwidth out', :value=>'out'}
         ]
       },
       {:object=>'TPS', :instance=>'_Total',  :selector=>'TPS', :counters=>[ 
@@ -57,14 +57,14 @@ module Fluent
         {:counter=>'Bytes/sec', :value=>'BytesPerSec'}
         ]
       },        
-      {:object=>'VS', :instance=>'*.Index', :selector=>'Vs.*', :counters => [
-        {:counter=>'Active Connections', :value=>'*.ActiveConns'},
-        {:counter=>'Connections/sec', :value=>'*.ConnsPerSec'}
+      {:object=>'VS', :instance=>'*.Index', :selector=>'Vs', :counters => [
+        {:counter=>'Active Connections', :value=>'ActiveConns'},
+        {:counter=>'Connections/sec', :value=>'ConnsPerSec'}
         ]
       },
-      {:object=>'RS', :instance=>'*.RSIndex', :selector=>'Rs.*', :counters => [
-        {:counter=>'Active Connections', :value=>'*.ActiveConns'},
-        {:counter=>'Connections/sec', :value=>'*.ConnsPerSec'}
+      {:object=>'RS', :instance=>'*.RSIndex', :selector=>'Rs', :counters => [
+        {:counter=>'Active Connections', :value=>'ActivConns'},
+        {:counter=>'Connections/sec', :value=>'ConnsPerSec'}
         ]
       }      
     ]

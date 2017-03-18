@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "omsLogAnalyticsWorkspaceName": {
-            "value": "bbacc090-abbd-4313-9545-6dd72b96a1f6"
+            "value": "99c95eb8-5ef1-4620-9684-74591f39b666" //"bbacc090-abbd-4313-9545-6dd72b96a1f6"
         }
    }
 }

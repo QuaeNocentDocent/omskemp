@@ -55,11 +55,11 @@
 <backupuser>svc_kempbck</backupuser>
 <emaildomain>asmn.net</emaildomain>
 <emailpassword>********</emailpassword>
-<emailserver>smtpint2.asmn.net</emailserver>
+<emailserver>smtpint2.qnd.local</emailserver>
 <emailsslmode>0</emailsslmode>
 <emailport>25</emailport>
-<emailcritical>infrastruttura@asmn.re.it</emailcritical>
-<emailemergency>infrastruttura@asmn.re.it</emailemergency>
+<emailcritical>info@qnd.local</emailcritical>
+<emailemergency>info@qnd.local</emailemergency>
 <addvia>no</addvia>
 <allowupload>no</allowupload>
 <dropatdrainend>yes</dropatdrainend>

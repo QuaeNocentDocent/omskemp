@@ -1,16 +1,16 @@
-#Kemp LoadMaster / Application Gateway Extension for OMS
+# Kemp LoadMaster / Application Gateway Extension for OMS
 
-##Caveats
+## Caveats
 
 - **This is a preview version of the solution** please feel free to experiment and report feedback. Installing the solution will make no arm to your running environment, but will ingest data into your OMS workspace. The format of the data can be changed in future releases.
 
 
-##Solution goal
+## Solution goal
 
-This solution will collect status, asset and performance data from your [Kemp](www.kemptechnologies.com) Application Delivery (ex loadmaster) devices into your OMS Log Analytics workspace.
+This solution will collect status, asset and performance data from your [Kemp](www.kemptechnologies.com) Application Delivery (was loadmaster) devices into your OMS Log Analytics workspace.
 Optionally a custom solution can be imported to display key information and set predefined searches and alerts.
 
-##Installation
+## Installation
 
 The solution is a natural extension of the Linux OMS Agent, so first of all you need to install and onboard a linux machine with the [OMS agent](https://github.com/Microsoft/OMS-Agent-for-Linux)
 Once the agent is properly configured the easiest way to configure the solution is to run the following command:
@@ -30,9 +30,9 @@ if you want you can install the OMS Solution
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
-![SolutionOverview](docs/pictures/solution overview.png?raw=true)
+![SolutionOverview](docs/pictures/overview.png?raw=true)
 
-##configuration
+## Configuration
 
 On your Kemp devices you must enable the REST interface and create a readonly user for the data collection.
 
@@ -56,10 +56,10 @@ In the nodes attribute you must specify the fqnd or ip address of your devices f
 You must then copy the kemp.conf file to /etc/opt/omsagent/conf/omsagent.d/kemp.conf (sudo cp ./kemp.conf /etc/opt/omsagent/conf/omsagent.d)
 Lastly, you must retart the OMS agent "sudo service omsagent restart" and the data will be ingested in your workspace.
 
-Optionally you can configure your Kemp devices to send syslog data to OMS, in this case the solution will intercept the stream and create for your a specific log that will be easier to query.
-By default the solution is listening for syslog record on port 25326/udp.
+Optionally you can configure your Kemp devices to send syslog data to OMS, in this case the solution will intercept the stream and create for you a specific log that will be easier to query on.
+By default the solution is listening for syslog records on port 25326/udp.
 
-##Query the data
+## Query the data
 The solution will create the following data types:
 
 - KempDevice_CL
@@ -68,10 +68,10 @@ The solution will create the following data types:
 
 ...more doc and samples to be added
 
-##How to remove the solution
+## How to remove the solution
 
-Currently the solution cannot be removed from UI, this is an ARM provider limitation that will be lifted in the future.
-While the generic solution can be removed from the the Azure [portal](https://portal.azure.com) in the Log Analytics workspace balde, under solutions, the view cannot.
+While the generic solution can be removed from the the Azure [portal](https://portal.azure.com) in the Log Analytics workspace blade, under solutions, the view cannot.
+
 The easiest way to remove the entire solution today is to use [armclient](https://github.com/projectkudu/ARMClient):
 
 ~~~
@@ -82,11 +82,11 @@ armclient delete "https://management.azure.com/subscriptions/{your subscription 
 
 You can get the {your subscription Id}, {your resource group name} and {your workspace name} from the Azure portal.
 
-##Debug
+## Debug
 
 ...todo
 
-##Support
+## Support
 
 This solution is open source under the GPL-2.0 licensing agreement. Is it is basically free, anyway support for deploying and/or configuring it is not free, you can contact my company by [email](mailto:info@progel.it)
 
@@ -94,7 +94,7 @@ If you find this solution useful and want to contribute to local community event
 
 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=TYVKJP655BD9S"><img src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" /></a>
 
-#Resources and links
+# Resources and links
 
 https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-template-workspace-configuration
 

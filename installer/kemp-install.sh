@@ -17,5 +17,3 @@ wget "$GITHUB_SOURCE/installer/conf/omsagent.d/kemp.conf"
 # I must implement some sort of version control and probably I must not copy the configuration file
 cp ./*.rb $PLUGIN_PATH
 #cp ./kemp.conf $CONF_PATH
-
- /opt/microsoft/omsagent/ruby/bin/gem install multi_xml

@@ -41,10 +41,10 @@ module Fluent
         ]
       },      
       {:object=>'Network', :instance=>'*',  :selector=>'Network.*', :counters=>[ 
-          {:counter=>'in bytes/sec', :value=>'*.inbytes'},
-          {:counter=>'out bytes/sec', :value=>'*.outbytes'},
-          {:counter=>'% bandwidth in', :value=>'*.in'},
-          {:counter=>'% bandwidth out', :value=>'*.out'}
+          {:counter=>'in bytes/sec', :value=>'inbytes'},
+          {:counter=>'out bytes/sec', :value=>'outbytes'},
+          {:counter=>'% bandwidth in', :value=>'in'},
+          {:counter=>'% bandwidth out', :value=>'out'}
         ]
       },
       {:object=>'TPS', :instance=>'_Total',  :selector=>'TPS', :counters=>[ 
@@ -57,14 +57,14 @@ module Fluent
         {:counter=>'Bytes/sec', :value=>'BytesPerSec'}
         ]
       },        
-      {:object=>'VS', :instance=>'*.Index', :selector=>'Vs.*', :counters => [
-        {:counter=>'Active Connections', :value=>'*.ActiveConns'},
-        {:counter=>'Connections/sec', :value=>'*.ConnsPerSec'}
+      {:object=>'VS', :instance=>'*.Index', :selector=>'Vs', :counters => [
+        {:counter=>'Active Connections', :value=>'ActiveConns'},
+        {:counter=>'Connections/sec', :value=>'ConnsPerSec'}
         ]
       },
-      {:object=>'RS', :instance=>'*.RSIndex', :selector=>'Rs.*', :counters => [
-        {:counter=>'Active Connections', :value=>'*.ActiveConns'},
-        {:counter=>'Connections/sec', :value=>'*.ConnsPerSec'}
+      {:object=>'RS', :instance=>'*.RSIndex', :selector=>'Rs', :counters => [
+        {:counter=>'Active Connections', :value=>'ActivConns'},
+        {:counter=>'Connections/sec', :value=>'ConnsPerSec'}
         ]
       }      
     ]
@@ -72,6 +72,10 @@ module Fluent
     def configure (conf)
       super
        @ip_cache = OMS::IPcache.new @ip_cache_refresh_interval
+       @devices = []
+       nodes.each { |k| 
+        @devices << KempRest::KempDevice.new(k, @user_name, @user_password, @retries, @wait_seconds)
+      }
        $log.debug {"Configuring Kemp rest plugin"}       
     end
 
@@ -130,6 +134,8 @@ module Fluent
     end
 
     def decorate_record(record,type,time,name)
+      #let's opt to use the configured device name instead of getting the fqnd from the network stack'
+      #fqdn=Socket.gethostbyname(name)[0]
         record["rType"]=type
         record["EventTime"] = OMS::Common.format_time(time)
         record["Computer"] = name
@@ -165,24 +171,20 @@ module Fluent
       #}
       # router.emit(@tag, time, wrapper) if wrapper
 
-      #class needs to be improved with caching, persitent node context etc
-      kdevice= KempRest::KempDevice.new
-      kdevice.retries=@retries
-      kdevice.wait_secs=@wait_seconds
-      #OMS consistent data, mettici un rescue
+      #OMS consistent data
       #records=[]
       es=MultiEventStream.new
       #record= {"servertype"=>"rs","index"=>"118","parentindex"=>"43","name"=>"","parentname"=>"ws-di-btiissole.asmn.net",
       #  "status"=>"Up","address"=>"172.20.3.127","enabled"=>"Y","rType"=>"device_status","EventTime":"2016-12-08T09:29:00.453Z",
       #  "Computer"=>"smv-inf-kemp1b.asmn.net","HostIP"=>"172.20.2.72"}
       #es.add(time,record)
-      @nodes.each {|name|
-        $log.trace {"Calling vsrs_status for #{name} with time #{time}"}
+      @devices.each {|device|
+        $log.trace {"Calling vsrs_status for #{device.name} with time #{time}"}
          #let's set status here before moving it in its own method
-         status = kdevice.vsrs_status(name, @user_name, @user_password)
+         status = device.vsrs_status()
          unless status.empty?
            status.each {|record|
-              record = decorate_record(record,'device_status',time,name)    
+              record = decorate_record(record,'device_status',time,device.name)    
               $log.trace {"#{record}"}            
               es.add(time,record)
            }
@@ -219,21 +221,15 @@ module Fluent
       #}
       # router.emit(@tag, time, wrapper) if wrapper
 
-      #class needs to be improved with caching, persitent node context etc
-      kdevice= KempRest::KempDevice.new
-      kdevice.retries=@retries
-      kdevice.wait_secs=@wait_seconds
-      #OMS consistent data, mettici un rescue
-      #records=[]
       es=MultiEventStream.new
-      @nodes.each {|name|
-        $log.trace {"Calling device_info for #{name} with time #{time}"}
-         info=kdevice.device_info(name, @user_name, @user_password)
+      @devices.each {|device|
+        $log.trace {"Calling device_info for #{device.name} with time #{time}"}
+         info=device.device_info()
          unless info.empty?
             # use the tag to differentiate streams returned, in the end we will have a multistream payload with different wrappers
             #in case we need cleanup use /^[a..Z0..9 :]/         
             #record.each {|key,value| value.gsub!("\n","")}
-            info=decorate_record(info,'device_info',time,name)
+            info=decorate_record(info,'device_info',time,device.name)
             $log.trace {"#{info}"}                     
             es.add(time,info)
             #records << record
@@ -252,20 +248,18 @@ module Fluent
     def get_perf_data
       time = Time.now.to_f
       time = Engine.now
-      #OMS consistent data
-      kdevice= KempRest::KempDevice.new
-      kdevice.retries=@retries
-      kdevice.wait_secs=@wait_seconds
+
       #es=MultiEventStream.new
       records=[]
-      @nodes.each {|name|
-        $log.trace {"get_perf_data for #{name}"}
-        perfs = kdevice.device_perf(name,@user_name, @user_password,@counters_map)
-        $log.trace {"got perf data for #{name} - #{perfs.count}"}
+      @devices.each {|device|
+        $log.trace {"get_perf_data for #{device.name}"}
+        perfs = device.device_perf(@counters_map)
+        $log.trace {"got perf data for #{device.name} - #{perfs.count}"}
         unless perfs.empty?
           perfs.each {|object|
             object['Timestamp']=OMS::Common.format_time(time)
-            object['Host']=name
+            object['Host']=device.name
+            #why am I deleting to readd?
             object['ObjectName']=object.delete('ObjectName')
             object['InstanceName']=object.delete('InstanceName')
             object['Collections']=object.delete('Collections')

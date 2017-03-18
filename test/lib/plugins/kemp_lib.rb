@@ -3,6 +3,7 @@ module KempRest
 require 'net/http'
 require 'net/https'
 require 'rexml/document'
+require 'rexml/encoding'
 require 'uri'
 require 'logger'
 require 'time'
@@ -62,28 +63,20 @@ class KempDevice
     t_selector=selector.sub('.','/')
     t_value=value.sub('.','/')
 
-    #if selector ends with .* we must manage multiple matches
-    multi=false
-    if t_selector.match(/[\/][*]$/)
-      multi=true
-      t_selector.sub!(/[\/][*]$/,'')
-      raise "Invalid instance or value selector #{instance}:#{value}" if instance.match(/^[*]/) || value.match(/^[*]/)
-      t_instance.sub!(/^[*][\/]/,'')
-      t_value.sub!(/^[*][\/]/,'')
-    end
-
-
     result={}
-    if multi
-      counters_hash.each_element("/Response/Success/Data/#{t_selector}") { |el|
-        c_instance = el.get_text(t_instance).to_s
-        c_value = el.get_text(t_value).to_s
-        result[c_instance] = {'CounterName'=>counter_label, 'Value'=>c_value.to_f}
-      }
-    else
-      c_value = counters_hash.get_text("/Response/Success/Data/#{t_selector}/#{t_value}").to_s
-      result[instance] = {'CounterName'=>counter_label, 'Value'=>c_value.to_f}
-    end
+    counters_hash.each_element("/Response/Success/Data/#{t_selector}") { |el|
+      case t_instance
+      when /^[*]$/
+          c_instance = el.name
+      when /^[*]\//
+          c_instance = el.get_text(t_instance.sub(/^[*][\/]/,'')).value
+      else
+          c_instance = t_instance
+      end
+      c_value = el.get_text(t_value).value.to_f #unless el.get_text(t_value).nil?
+      result[c_instance] = {'CounterName'=>counter_label, 'Value'=>c_value}
+    }
+
     result
   end
 
@@ -107,14 +100,15 @@ class KempDevice
     device_info = access_get('getall')
     results={}
     unless device_info.nil?
-      props.each {|p| results[p]=device_info.get_text("/Response/Success/Data/#{p}")}
+      props.each {|p| results[p]=device_info.get_text("/Response/Success/Data/#{p}").value}
     end
     #now get licesning info
     props=['uuid', 'LicensedUntil', 'SupportUntil', 'LicenseType','LicenseStatus','ActivationDate','ApplicaneModel','ApplianceModel']    
     @@log.debug {"device_info: getting license info for #{name}"}
     device_info = access_get('licenseinfo')
+
     unless device_info.nil?
-      props.each {|p| results[p]=device_info.get_text("/Response/Success/Data/#{p}")}
+      props.each {|p| results[p]=device_info.get_text("/Response/Success/Data/#{p}").value unless device_info.get_text("/Response/Success/Data/#{p}").nil?}
     end
     #some translation here for the AppicaneModel properties to correct a typo in Kemp interface
     if ! results['ApplicaneModel'].nil?
@@ -122,7 +116,8 @@ class KempDevice
     end
     #cleanup and convert
     #nyi excpetion management during conversion    
-    props.each {|p| results[p].gsub!(/[^0-9A-Za-z :]/, '') unless results[p].nil?}
+
+    props.each {|p| results[p].gsub!(/(\\n|[^0-9A-Za-z :])/, '') unless results[p].nil?}
     ['ActivationDate','SupportUntil'].each {|p| results[p]=format_time(results[p]) unless results[p].nil?}
     results['LicensedUntil'] = results['LicensedUntil'] == 'unlimited' ? format_time('01-01-2099') : format_time(results['LicensedUntil'])
      
@@ -131,7 +126,7 @@ class KempDevice
     @@log.debug {"device_info: getting HSM info for #{name}"}
     device_info = access_get('showhsm')
     unless device_info.nil?
-      props.each {|p| results[p]=device_info.get_text("/Response/Success/Data/HSM/#{p}")}
+      props.each {|p| results[p]=device_info.get_text("/Response/Success/Data/HSM/#{p}").value unless device_info.get_text("/Response/Success/Data/#{p}").nil?}
     end
     #some translation here for the AppicaneModel properties to correct a typo in Kemp interface
     if results['engine']
@@ -201,8 +196,7 @@ class KempDevice
 
     perf=access_get('stats')
     performance_points=[]
-    unless perf.nil?
-      perf = perf['Response']['Success']['Data']
+    unless perf.nil?      
       counters_map.each {|instance|
           instances={}
           instance[:counters].each {|counter| 
@@ -217,7 +211,7 @@ class KempDevice
                   operands=counter[:value].scan(/\[(.+?)\]/).flatten
                   @@log.debug {"Parsed value #{operands}"}
                   operands.each {|v|
-                    @@log.debug {"Looking for #{v}"}     
+                    @@log.debug {"Looking for #{v}"}    
                     instances[instance[:instance]].each {|c|
                       new_counter += c['Value'] if c['CounterName'] == v
                     }
@@ -283,6 +277,7 @@ class KempDevice
       retries=@retries
       begin
         response=http.request(req)
+        response.decode_content = true
         result=REXML::Document.new(response.body) if response.code == '200'
       rescue => exception
         #log exception in some way
@@ -304,46 +299,45 @@ class KempDevice
       end
       #now we must build a VS and subVS hash, this should be cached
       #right now let's implement a ctach all
-      begin
         #device_info['Response']['Success']['Data']['VS'].each { |vs|    
         device_info.each_element('/Response/Success/Data/VS') { |vs|
-          @vs_map[vs.get_text('Index')]={
-            :address =>vs.get_text('VSAddress'),
-            :name => vs.get_text('NickName'),
-            :status => vs.get_text('Status'),
-            :enable => vs.get_text('Enable')
-          }    
-          if ! vs.elements['SubVS'].nil?
-              vs.each_element('SubVS') {|sub|
-                @subvs_map[sub.get_text('VSIndex')]={
-                  :address =>vs.get_text('VSAddress'),
-                  :name => sub.get_text('Name'),
-                  :vsindex => vs.get_text('Index'),
-                  :status => sub.get_text('Status'),
-                  :enable =>  vs.get_text('Enable')                  
-                }               
-              }          
-          end  
-          if ! vs.elements['Rs'].nil?
-              vs.each_element('Rs') {|r|
-                @rs_map[r.get_text('RsIndex')]={
-                  :address =>r.get_text('Addr'),
-                  :name => '',
-                  :vsindex => r.get_text('VSIndex'),
-                  :status => r.get_text('Status'),
-                  :enable => vs.get_text('Enable')                
-                }               
-              }          
-          end      
+          begin
+            @vs_map[vs.get_text('Index').value]={
+              :address =>(vs.get_text('VSAddress').value unless vs.get_text('VSAddress').nil?),
+              :name => (vs.get_text('NickName').value unless vs.get_text('NickName').nil?) ,
+              :status => vs.get_text('Status').value,
+              :enable => vs.get_text('Enable').value
+            }    
+            if ! vs.elements['SubVS'].nil?
+                vs.each_element('SubVS') {|sub|
+                  @subvs_map[sub.get_text('VSIndex').value]={
+                    :address =>vs.get_text('VSAddress').value,
+                    :name => sub.get_text('Name').value,
+                    :vsindex => vs.get_text('Index').value,
+                    :status => sub.get_text('Status').value,
+                    :enable =>  vs.get_text('Enable').value
+                  }               
+                }          
+            end  
+            if ! vs.elements['Rs'].nil?
+                vs.each_element('Rs') {|r|
+                  @rs_map[r.get_text('RsIndex').value]={
+                    :address =>r.get_text('Addr').value,
+                    :name => '',
+                    :vsindex => r.get_text('VSIndex').value,
+                    :status => r.get_text('Status').value,
+                    :enable => vs.get_text('Enable').value
+                  }               
+                }          
+            end      
+          rescue Exception => e
+            @@log.error {"load_maps: error populating VS and RS maps for #{vs.get_text('Index').value} #{e.message}"}
+          end
         }
         #now remove from the vs_map the sub_vs
         @subvs_map.each { |key, value|
           if ! @vs_map[key].nil? then @vs_map.delete(key) end
         }
-        #no error handling right now
-      rescue Exception => e
-        @@log.error {"load_maps: error populating VS andRS maps #{e.message}"}
-      end
     end
 
     def get_vsinfo(index, prop)

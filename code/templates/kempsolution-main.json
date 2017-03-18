@@ -25,7 +25,7 @@
                 "product": "OMSGallery/KempApplicationDelivery"
             }
         },        
-        "uri":"https://raw.githubusercontent.com/QuaeNocentDocent/omskemp/rexml/code/templates/kempsolution-alerts.json",
+        "alertsTemplateUri": "[uri(deployment().properties.templateLink.uri, 'kempsolution-alerts.json')]",
         "omsLogAnalyticsAPIVersion": "2015-11-01-preview", //2017-03-03-preview",
         "querytemplateuri": "https//rawcontent.github.com",
         "location": "[resourceGroup().location]",
@@ -735,7 +735,7 @@
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "[variables('uri')]",
+          "uri": "[variables('alertsTemplateUri')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {

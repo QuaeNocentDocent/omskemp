@@ -31,7 +31,7 @@ end
 class KempLibtest < Test::Unit::TestCase
   class << self
     def startup
-      @perfMap = [
+      @@perf_map = [
         {:object=>'Processor', :instance=>'_Total', :selector=>'CPU.total', :counters => [
             {:counter=>'% System Time', :value=>'System'},
             {:counter=>'% User Time',  :value=>'User'},
@@ -46,10 +46,10 @@ class KempLibtest < Test::Unit::TestCase
           ]
         },      
         {:object=>'Network', :instance=>'*',  :selector=>'Network.*', :counters=>[ 
-            {:counter=>'in bytes/sec', :value=>'*.inbytes'},
-            {:counter=>'out bytes/sec', :value=>'*.outbytes'},
-            {:counter=>'% bandwidth in', :value=>'*.in'},
-            {:counter=>'% bandwidth out', :value=>'*.out'}
+            {:counter=>'in bytes/sec', :value=>'inbytes'},
+            {:counter=>'out bytes/sec', :value=>'outbytes'},
+            {:counter=>'% bandwidth in', :value=>'in'},
+            {:counter=>'% bandwidth out', :value=>'out'}
           ]
         },
         {:object=>'TPS', :instance=>'_Total',  :selector=>'TPS', :counters=>[ 
@@ -62,14 +62,14 @@ class KempLibtest < Test::Unit::TestCase
           {:counter=>'Bytes/sec', :value=>'BytesPerSec'}
           ]
         },        
-        {:object=>'VS', :instance=>'*.Index', :selector=>'Vs.*', :counters => [
-          {:counter=>'Active Connections', :value=>'*.ActiveConns'},
-          {:counter=>'Connections/sec', :value=>'*.ConnsPerSec'}
+        {:object=>'VS', :instance=>'*.Index', :selector=>'Vs', :counters => [
+          {:counter=>'Active Connections', :value=>'ActiveConns'},
+          {:counter=>'Connections/sec', :value=>'ConnsPerSec'}
           ]
         },
-        {:object=>'RS', :instance=>'*.RSIndex', :selector=>'Rs.*', :counters => [
-          {:counter=>'Active Connections', :value=>'*.ActiveConns'},
-          {:counter=>'Connections/sec', :value=>'*.ConnsPerSec'}
+        {:object=>'RS', :instance=>'*.RSIndex', :selector=>'Rs', :counters => [
+          {:counter=>'Active Connections', :value=>'ActivConns'},
+          {:counter=>'Connections/sec', :value=>'ConnsPerSec'}
           ]
         }
       ]
@@ -81,9 +81,7 @@ class KempLibtest < Test::Unit::TestCase
     def shutdown
     end
   end
-  def test_true
-    assert true
-  end
+
 
     def test_parse_counter
       assert(! @@device.nil?, 'Error device is not initialized')
@@ -94,5 +92,30 @@ class KempLibtest < Test::Unit::TestCase
       result=@@device.parse_counter(counter_hash, 'CPU.total', instance, counter_name, 'System')
       assert_equal(counter_name, result[instance]['CounterName'], "Returned CounterName is not #{counter_name} <> #{result[instance]['CounterName']}")
       assert_equal(expected_value, result[instance]['Value'], "Returned Counter Value is not #{expected_value} <> #{result[instance]['Value']}")
+
+      #check for multiple instances :counters
+      counter_name='Active Connections'
+      instance='*.RSIndex'
+      selector='Rs'
+      value='ActivConns'
+      result=@@device.parse_counter(counter_hash, selector, instance, counter_name, value)
+      assert_equal(197,result.count, "Returned number of instances is wrong")
+    end
+
+    def test_device_info
+      result = @@device.device_info()
+      assert_equal('SMv-INF-KEMP1a', result['ha1hostname'], "Mismatch in parsing device_info properties")
+    end
+
+    def test_vsrs_status
+      result = @@device.vsrs_status()
+      assert_equal(314, result.count, 'Wrong number of entried returned')
+      assert_equal("3", result[0]['index'], 'Wrong parsing of entries')
+    end
+
+    def test_device_perf
+      result = @@device.device_perf(@@perf_map)
+      assert_equal(242, result.count, 'Wrong number of entried returned')
+      assert_equal('KempLM-Processor', result[0]['ObjectName'], 'Wrong parsing of entries') 
     end
 end
