@@ -140,7 +140,7 @@
                             "List": [
                                 {
                                     "Title": "The solution needs to be configured",
-                                    "Content": "The data sets processed by the QND Kemp Application Delivery solution need to be collected from a Linux machine. To do this on a supported Linux platform install the [OMS agent](https://github.com/Microsoft/OMS-Agent-for-Linux)\n\nAfter the agent is configured and running, install the Kemp extension and configure your Kemp devices following these [steps](https://github.com/QuaeNocentDocent/omskemp/tree/master)\n\n![Kemp Logo](https://kemptechnologies.com/sites/all/themes/custom/ktwide/images/KEMP-logov2.svg)"
+                                    "Content": "The data sets processed by the QND Kemp Application Delivery solution need to be collected from a Linux machine. To do this on a supported Linux platform install the [OMS agent](https://github.com/Microsoft/OMS-Agent-for-Linux)\n\nAfter the agent is configured and running, install the Kemp extension and configure your Kemp devices following these [steps](https://github.com/QuaeNocentDocent/omskemp/tree/master)\n\n![Kemp Logo](https://raw.githubusercontent.com/QuaeNocentDocent/omskemp/rexml/docs/pictures/KEMP-logov2.png)"
                                 }
                             ]
                         }
