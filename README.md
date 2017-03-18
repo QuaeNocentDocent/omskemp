@@ -70,17 +70,7 @@ The solution will create the following data types:
 
 ## How to remove the solution
 
-While the generic solution can be removed from the the Azure [portal](https://portal.azure.com) in the Log Analytics workspace blade, under solutions, the view cannot.
-
-The easiest way to remove the entire solution today is to use [armclient](https://github.com/projectkudu/ARMClient):
-
-~~~
-armclient login
-armclient delete "https://management.azure.com/subscriptions/{your subscription Id}/resourceGroups/{your resource group name}/providers/Microsoft.OperationsManagement/solutions/Kemp Application Delivery?api-version=2015-11-01-preview"
-armclient delete "https://management.azure.com/subscriptions/{your subscription Id}/resourceGroups/{your resource group name}/providers/Microsoft.OperationalInsights/workspaces/{your workspace name}/views/Kemp Application Delivery?api-version=2015-11-01-preview"
-~~~
-
-You can get the {your subscription Id}, {your resource group name} and {your workspace name} from the Azure portal.
+In the unfortunate case you want to remove the solution you can do it from the the Azure [portal](https://portal.azure.com) in the Log Analytics workspace blade, under solutions, currently the predefined searches and alerts are not automatically removed. If you also want to get rid of them they can be manually deleted from "Saved searches" in the Log Analytics workspace blade.
 
 ## Debug
 

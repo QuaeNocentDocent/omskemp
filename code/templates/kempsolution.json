@@ -114,10 +114,9 @@
                 "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]"
             ],
             "properties": {
-                "Name": "[variables('omsSolutions').customSolution.viewName]",
-                "displayName": "[variables('omsSolutions').customSolution.displayName]",
-                "Description": "[variables('omsSolutions').customSolution.description]",
-                "Author": "[variables('omsSolutions').customSolution.author]",
+                "Id": "Kemp LoadMaster",
+                "Name": "Kemp LoadMaster",
+                "Author": "daniele.grandini@live.it",
                 "Source": "Local",
                 "Dashboard": [
                     {
@@ -141,7 +140,7 @@
                             "List": [
                                 {
                                     "Title": "The solution needs to be configured",
-                                    "Content": "## OMS agent configuration\n\nOn a supported Linux platform install the [OMS agent](https://github.com/Microsoft/OMS-Agent-for-Linux)\n\nInstall the Kemp extension following these [steps](https://github.com/QuaeNocentDocent/OMS-Agent-for-Linux)\n\n## Kemp device configuration\n\n1. Enable the REST API\n2. Create a readonly user\n3. Optionally configure an external syslog server pointing to the linux system where you installed the extension using udp on port 25326\n\n## Configure the solution\nEdit the /etc/opt/microsoft/omsagent/conf/omsagent.d/kemp.conf file to add the devices you want to poll and the credentials. [More info](https://github.com/QuaeNocentDocent/OMS-Agent-for-Linux)\n\n![Kemp Logo](\"https://kemptechnologies.com/sites/all/themes/custom/ktwide/images/KEMP-logov2.svg\")"
+                                    "Content": "The data sets processed by the QND Kemp Application Delivery solution need to be collected from a Linux machine. To do this on a supported Linux platform install the [OMS agent](https://github.com/Microsoft/OMS-Agent-for-Linux)\n\nAfter the agent is configured and running, install the Kemp extension and configure your Kemp devices following these [steps](https://github.com/QuaeNocentDocent/omskemp/tree/master)\n\n![Kemp Logo](https://kemptechnologies.com/sites/all/themes/custom/ktwide/images/KEMP-logov2.svg)"
                                 }
                             ]
                         }
@@ -463,7 +462,7 @@
                                     ]
                                 },
                                 "NameDSVSeparator": "",
-                                "NavigationQuery": "{selected item} Type:Perf (ObjectName=\"KempLM-Processor\") (CounterName=\"% System Time\") | measure percentile95(CounterValue) by Computer interval 15MINUTES | display linechart"
+                                "NavigationQuery": "{selected item} Type:Perf (ObjectName=\"KempLM-Processor\") (CounterName=\"% Total Time\") | measure percentile95(CounterValue) by Computer interval 15MINUTES | display linechart"
                             }
                         }
                     },
@@ -613,7 +612,7 @@
                                 "Subtitle": ""
                             },
                             "Donut": {
-                                "Query": "Type:KempStatus_CL (servertype_s=vs OR servertype_s=subvs) enabled_s=\"Y\"  TimeGenerated > NOW-7MINUTES | dedup name_s | measure count() by status_s",
+                                "Query": "Type:KempStatus_CL (servertype_s=vs OR servertype_s=subvs) enabled_s=\"Y\"  TimeGenerated > NOW-8MINUTES | dedup name_s | measure count() by status_s",
                                 "CenterLegend": {
                                     "Text": "Total",
                                     "Operation": "Sum",
@@ -629,7 +628,7 @@
                                 }
                             },
                             "List": {
-                                "Query": "Type:KempStatus_CL (servertype_s=vs OR servertype_s=subvs) enabled_s=\"Y\" AND (status_s!=\"Up\" AND status_s!=\"Redirect\") | select name_s, status_s | dedup name_s",
+                                "Query": "Type:KempStatus_CL (servertype_s=vs OR servertype_s=subvs) enabled_s=\"Y\"  status_s!=\"Up\"  status_s!='Redirect' | select name_s, status_s | dedup name_s",
                                 "HideGraph": false,
                                 "enableSparklines": false,
                                 "ColumnsTitle": {
