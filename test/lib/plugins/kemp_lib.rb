@@ -93,14 +93,20 @@ class KempDevice
 
   def device_info ()
     #tbd. create a data structure with cvommands and props to make the info gathering flexible
-    props=['dfltgw', 'hamode', 'havhid', 'hastyle','backupenable','backuphost','ha1hostname','hostname','ha2hostname','serialnumber','version']
+    props=['dfltgw', 'hamode', 'havhid', 'hastatus','backupenable','backuphost','ha1hostname','hostname','ha2hostname','serialnumber','version']
 
     #for ha1hostname better a regexp
     @@log.debug {"device_info: getting data for #{@name}"}
     device_info = access_get('getall')
     results={}
     unless device_info.nil?
-      props.each {|p| results[p]=device_info.get_text("/Response/Success/Data/#{p}").value}
+      props.each {|p| 
+        begin
+          results[p]=device_info.get_text("/Response/Success/Data/#{p}").value
+        rescue
+          @@log.error {"device_info: Error reading property #{p}"}
+        end
+      }
     end
     #now get licesning info
     props=['uuid', 'LicensedUntil', 'SupportUntil', 'LicenseType','LicenseStatus','ActivationDate','ApplicaneModel','ApplianceModel']    
@@ -108,7 +114,13 @@ class KempDevice
     device_info = access_get('licenseinfo')
 
     unless device_info.nil?
-      props.each {|p| results[p]=device_info.get_text("/Response/Success/Data/#{p}").value unless device_info.get_text("/Response/Success/Data/#{p}").nil?}
+      props.each {|p| 
+      begin
+        results[p]=device_info.get_text("/Response/Success/Data/#{p}").value unless device_info.get_text("/Response/Success/Data/#{p}").nil?
+      rescue
+        @@log.error {"device_info: Error reading property #{p}"}
+      end
+      }
     end
     #some translation here for the AppicaneModel properties to correct a typo in Kemp interface
     if ! results['ApplicaneModel'].nil?
@@ -126,7 +138,13 @@ class KempDevice
     @@log.debug {"device_info: getting HSM info for #{name}"}
     device_info = access_get('showhsm')
     unless device_info.nil?
-      props.each {|p| results[p]=device_info.get_text("/Response/Success/Data/HSM/#{p}").value unless device_info.get_text("/Response/Success/Data/#{p}").nil?}
+      props.each {|p| 
+        begin
+          results[p]=device_info.get_text("/Response/Success/Data/HSM/#{p}").value unless device_info.get_text("/Response/Success/Data/#{p}").nil?
+        rescue
+          @@log.error {"device_info: Error reading property #{p}"}          
+        end
+      }
     end
     #some translation here for the AppicaneModel properties to correct a typo in Kemp interface
     if results['engine']

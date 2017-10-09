@@ -21,10 +21,9 @@
                 "description": "Monitor and analyze your Kemp Application Delivery devices",
                 "author": "daniele.grandini@live.it",
                 "version": "1",
-                "product": "OMSGallery/KempApplicationDelivery"
+                "product": "KempApplicationDelivery"
             }
         },        
-        "omsLogAnalyticsAPIVersion": "2015-11-01-preview", //2017-03-03-preview",
         "querytemplateuri": "https//rawcontent.github.com",
         "location": "[resourceGroup().location]",
         "deploymentsApiVersion": "2016-07-01",
@@ -98,14 +97,14 @@
         {
             "name": "[parameters('omslogAnalyticsWorkspaceName')]",
             "type": "Microsoft.OperationalInsights/workspaces",
-            "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+            "apiVersion": "2015-11-01-preview",
             "location": "[variables('location')]",
             "resources": [ 
             ]
         },
 // View get from the Views Designer, copy and paste the "Dashboard" and "OverviewTile" sections
        {
-            "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+            "apiVersion": "2015-11-01-preview",
             "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/' ,variables('omsSolutions').customSolution.viewName)]",
             "type": "Microsoft.OperationalInsights/workspaces/views",        
             "location": "[resourceGroup().location]",
@@ -694,11 +693,11 @@
         {
             "type": "Microsoft.OperationsManagement/solutions",
             "name": "[variables('omsSolutions').customSolution.solutionName]",
-            "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+            "apiVersion": "2015-11-01-preview",
             "location": "[variables('location')]",
             "dependsOn": [
                 "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
-                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/views/', variables('omsSolutions').customSolution.viewName)]",
+                "[resourceId('Microsoft.OperationalInsights/workspaces/views', parameters('omsLogAnalyticsWorkspaceName'), variables('omsSolutions').customSolution.viewName)]",
                 "savedsearchcopy",
                 "schedulescopy",
                 "savedsearchcopyMetric",
@@ -730,7 +729,7 @@
         },
 // Loops for alert declaration
         {
-            "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+            "apiVersion": "2015-11-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
             "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/', tolower(variables('alertArray')[copyIndex()].searchCategory), '|', toLower(variables('alertArray')[copyIndex()].searchName))]",
             "copy": {
@@ -738,8 +737,8 @@
                 "count": "[length(variables('alertArray'))]"
             },
             "dependsOn": [
-                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
-                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/views/', variables('omsSolutions').customSolution.viewName)]"
+                "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
+                "[resourceId('Microsoft.OperationalInsights/workspaces/views', parameters('omsLogAnalyticsWorkspaceName'), variables('omsSolutions').customSolution.viewName)]"
             ],
             "properties": {
                 "etag": "*",
@@ -750,7 +749,7 @@
             }
         },
         {
-            "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+            "apiVersion": "2015-11-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
             "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/', tolower(variables('alertMetricArray')[copyIndex()].searchCategory), '|', toLower(variables('alertMetricArray')[copyIndex()].searchName))]",
             "copy": {
@@ -758,8 +757,8 @@
                 "count": "[length(variables('alertMetricArray'))]"
             },
             "dependsOn": [
-                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
-                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/views/', variables('omsSolutions').customSolution.viewName)]"
+                "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
+                "[resourceId('Microsoft.OperationalInsights/workspaces/views', parameters('omsLogAnalyticsWorkspaceName'), variables('omsSolutions').customSolution.viewName)]"
             ],
             "properties": {
                 "etag": "*",
@@ -772,16 +771,20 @@
         {
             "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/', tolower(variables('alertArray')[copyIndex()].searchCategory), '|', toLower(variables('alertArray')[copyIndex()].searchName), '/','schedule-',uniqueString(resourceGroup().id, deployment().name,parameters('omsLogAnalyticsWorkspaceName'), '/', variables('alertArray')[copyIndex()].searchCategory, '|', variables('alertArray')[copyIndex()].searchName))]",
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules",
-            "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+            "apiVersion": "2015-11-01-preview",
             "location": "[variables('location')]",
             "copy": {
                 "name": "schedulescopy",
                 "count": "[length(variables('alertArray'))]"
             },
             "dependsOn": [
-                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
-                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/views/', variables('omsSolutions').customSolution.viewName)]",
-                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/savedSearches/', tolower(variables('alertArray')[copyIndex()].searchCategory), '|', toLower(variables('alertArray')[copyIndex()].searchName))]"
+                "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
+                "[resourceId('Microsoft.OperationalInsights/workspaces/views', parameters('omsLogAnalyticsWorkspaceName'), variables('omsSolutions').customSolution.viewName)]",
+                "savedsearchcopy"
+// let's keep the following as a doc on how to create a resorceid for a savedSearches and schedules
+//                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('omsLogAnalyticsWorkspaceName'), concat(tolower(variables('alertMetricArray')[copyIndex()].searchCategory), '|', toLower(variables('alertMetricArray')[copyIndex()].searchName)))]"                
+//                "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('omsLogAnalyticsWorkspaceName'), concat(tolower(variables('alertArray')[copyIndex()].searchCategory), '|', toLower(variables('alertArray')[copyIndex()].searchName)), concat('schedule-',uniqueString(resourceGroup().id, deployment().name,parameters('omsLogAnalyticsWorkspaceName'), '/', variables('alertArray')[copyIndex()].searchCategory, '|', variables('alertArray')[copyIndex()].searchName)))]"
+                
             ],
             "properties": {
                 "etag": "*",
@@ -794,17 +797,16 @@
         {
             "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/', tolower(variables('alertMetricArray')[copyIndex()].searchCategory), '|', toLower(variables('alertMetricArray')[copyIndex()].searchName), '/','schedule-',uniqueString(resourceGroup().id, deployment().name,parameters('omsLogAnalyticsWorkspaceName'), '/', variables('alertMetricArray')[copyIndex()].searchCategory, '|', variables('alertMetricArray')[copyIndex()].searchName))]",
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules",
-            "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+            "apiVersion": "2015-11-01-preview",
             "location": "[variables('location')]",            
             "copy": {
                 "name": "schedulescopyMetric",
                 "count": "[length(variables('alertMetricArray'))]"
             },
             "dependsOn": [
-                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
-                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/views/', variables('omsSolutions').customSolution.viewName)]",
-                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/savedSearches/', tolower(variables('alertMetricArray')[copyIndex()].searchCategory), '|', toLower(variables('alertMetricArray')[copyIndex()].searchName))]"
-            ],
+                "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
+                "[resourceId('Microsoft.OperationalInsights/workspaces/views', parameters('omsLogAnalyticsWorkspaceName'), variables('omsSolutions').customSolution.viewName)]",
+                "savedsearchcopyMetric"             ],
             "properties": {
                 "etag": "*",
                 "Interval": "[variables('alertMetricArray')[copyIndex()].scheduleIntervalInMinutes]",
@@ -817,17 +819,17 @@
         {
             "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/', tolower(variables('alertArray')[copyIndex()].searchCategory), '|', toLower(variables('alertArray')[copyIndex()].searchName), '/','schedule-',uniqueString(resourceGroup().id, deployment().name,parameters('omsLogAnalyticsWorkspaceName'), '/', variables('alertArray')[copyIndex()].searchCategory, '|', variables('alertArray')[copyIndex()].searchName), '/', 'alert-',uniqueString(resourceGroup().id, deployment().name,parameters('omsLogAnalyticsWorkspaceName'), '/', variables('alertArray')[copyIndex()].searchCategory, '|', variables('alertArray')[copyIndex()].searchName))]",
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-            "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+            "apiVersion": "2015-11-01-preview",
             "location": "[variables('location')]",        
             "copy": {
                 "name": "actioncopy",
                 "count": "[length(variables('alertArray'))]"
             },
             "dependsOn": [
-                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
-                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/views/', variables('omsSolutions').customSolution.viewName)]",
-                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/savedSearches/', tolower(variables('alertArray')[copyIndex()].searchCategory), '|', toLower(variables('alertArray')[copyIndex()].searchName))]",
-                "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/savedSearches/', tolower(variables('alertArray')[copyIndex()].searchCategory), '|', toLower(variables('alertArray')[copyIndex()].searchName), '/schedules/','schedule-',uniqueString(resourceGroup().id, deployment().name,parameters('omsLogAnalyticsWorkspaceName'), '/', variables('alertArray')[copyIndex()].searchCategory, '|', variables('alertArray')[copyIndex()].searchName))]"
+                "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
+                "[resourceId('Microsoft.OperationalInsights/workspaces/views', parameters('omsLogAnalyticsWorkspaceName'), variables('omsSolutions').customSolution.viewName)]",
+                "savedsearchcopy",
+                "schedulescopy"
             ],
             "properties": {
                 "etag": "*",
@@ -850,16 +852,16 @@
         {
         "name": "[concat(parameters('omsLogAnalyticsWorkspaceName'), '/', tolower(variables('alertMetricArray')[copyIndex()].searchCategory), '|', toLower(variables('alertMetricArray')[copyIndex()].searchName), '/','schedule-',uniqueString(resourceGroup().id, deployment().name,parameters('omsLogAnalyticsWorkspaceName'), '/', variables('alertMetricArray')[copyIndex()].searchCategory, '|', variables('alertMetricArray')[copyIndex()].searchName), '/', 'alert-',uniqueString(resourceGroup().id, deployment().name,parameters('omsLogAnalyticsWorkspaceName'), '/', variables('alertMetricArray')[copyIndex()].searchCategory, '|', variables('alertMetricArray')[copyIndex()].searchName))]",
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-        "apiVersion": "[variables('omsLogAnalyticsAPIVersion')]",
+        "apiVersion": "2015-11-01-preview",
         "copy": {
             "name": "actioncopyMetric",
             "count": "[length(variables('alertMetricArray'))]"
         },
         "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/views/', variables('omsSolutions').customSolution.viewName)]",
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/savedSearches/', tolower(variables('alertMetricArray')[copyIndex()].searchCategory), '|', toLower(variables('alertMetricArray')[copyIndex()].searchName))]",
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'), '/savedSearches/', tolower(variables('alertMetricArray')[copyIndex()].searchCategory), '|', toLower(variables('alertMetricArray')[copyIndex()].searchName), '/schedules/','schedule-',uniqueString(resourceGroup().id, deployment().name,parameters('omsLogAnalyticsWorkspaceName'), '/', variables('alertMetricArray')[copyIndex()].searchCategory, '|', variables('alertMetricArray')[copyIndex()].searchName))]"
+            "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsLogAnalyticsWorkspaceName'))]",
+            "[resourceId('Microsoft.OperationalInsights/workspaces/views', parameters('omsLogAnalyticsWorkspaceName'), variables('omsSolutions').customSolution.viewName)]",
+            "savedsearchcopyMetric",
+            "schedulescopyMetric"
         ],
         "properties": {
             "etag": "*",
