@@ -6,11 +6,11 @@
 
 CONF_PATH="/etc/opt/microsoft/omsagent/conf/omsagent.d"
 PLUGIN_PATH="/opt/microsoft/omsagent/plugin"
-GITHUB_SOURCE="https://raw.githubusercontent.com/QuaeNocentDocent/OMS-Agent-for-Linux/kemp"
+GITHUB_SOURCE="https://raw.githubusercontent.com/QuaeNocentDocent/omskemp/master"
 
-wget "$GITHUB_SOURCE/source/code/plugins/filter_kemp.rb"
-wget "$GITHUB_SOURCE/source/code/plugins/in_qnd_kemp_rest.rb"
-wget "$GITHUB_SOURCE/source/code/plugins/kemp_lib.rb"
+wget "$GITHUB_SOURCE/code/plugins/filter_kemp.rb"
+wget "$GITHUB_SOURCE/code/plugins/in_qnd_kemp_rest.rb"
+wget "$GITHUB_SOURCE/code/plugins/kemp_lib.rb"
 wget "https://raw.githubusercontent.com/fluent/fluent-plugin-rewrite-tag-filter/master/lib/fluent/plugin/out_rewrite_tag_filter.rb"
 wget "$GITHUB_SOURCE/installer/conf/omsagent.d/kemp.conf"
 
