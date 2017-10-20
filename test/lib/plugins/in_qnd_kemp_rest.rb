@@ -80,6 +80,7 @@ module Fluent
     end
 
     def start     
+      # to improve responsiveness let' get a first round of data evry time the agent is loaded
       $log.debug {"Starting Kemp rest plugin with interval #{@interval} and perf interval #{@interval_perf}"}
       super
       if @interval
@@ -87,25 +88,22 @@ module Fluent
         @condition = ConditionVariable.new
         @mutex = Mutex.new
         @thread = Thread.new(&method(:run_periodic))
-      else
-        get_info_data
       end
+      get_info_data
       if @interval_perf
         @finished = false
         @perf_condition = ConditionVariable.new
         @perf_mutex = Mutex.new
         @perf_thread = Thread.new(&method(:run_periodic_perf))
-      else
-        get_perf_data
       end
+      get_perf_data
       if @interval_status
         @finished = false
         @status_condition = ConditionVariable.new
         @status_mutex = Mutex.new
         @status_thread = Thread.new(&method(:run_periodic_status))
-      else
-        get_status_data
       end
+      get_status_data
     end
 
     def shutdown

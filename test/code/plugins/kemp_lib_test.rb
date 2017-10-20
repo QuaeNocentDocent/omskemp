@@ -104,6 +104,7 @@ class KempLibtest < Test::Unit::TestCase
 
     def test_device_info
       result = @@device.device_info()
+      puts result
       assert_equal('SMv-INF-KEMP1a', result['ha1hostname'], "Mismatch in parsing device_info properties")
     end
 

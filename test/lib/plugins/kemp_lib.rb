@@ -129,8 +129,8 @@ class KempDevice
     #cleanup and convert
     #nyi excpetion management during conversion    
 
-    #props.each {|p| results[p].gsub!(/(\\n|[^0-9A-Za-z :])/, '') unless results[p].nil?}
-    results.each {|k,v| results[k].gsub!(/(\\n|[^0-9A-Za-z :])/, '')} unless results.empty?
+    props.each {|p| results[p].gsub!(/(\\n|[^0-9A-Za-z :])/, '') unless results[p].nil?}
+    ['serialnumber'].each {|p| results[p].gsub!(/(\\n|[^0-9A-Za-z :])/, '') unless results[p].nil?}
     ['ActivationDate','SupportUntil'].each {|p| results[p]=format_time(results[p]) unless results[p].nil?}
     results['LicensedUntil'] = results['LicensedUntil'] == 'unlimited' ? format_time('01-01-2099') : format_time(results['LicensedUntil']) unless results['LicensedUntil'].nil?
      

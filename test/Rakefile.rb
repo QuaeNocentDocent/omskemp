@@ -2,6 +2,7 @@
 
 require 'rake/testtask'
 require 'rake/clean'
+require 'fileutils'
 
 task :test => [:prerequisites, :base_test, :plugintest]
 desc 'check for gem dependencies and install any missing gems'
@@ -27,6 +28,9 @@ end
 cur_dir=File.dirname(__FILE__).split('/')
 cur_dir.delete_at(cur_dir.count-1)
 ENV['BASE_DIR']=cur_dir.join('/')
+
+# copy files into the plugins directory
+FileUtils.cp_r("#{ENV['BASE_DIR']}/code/plugins", "#{ENV['BASE_DIR']}/test/lib")
 
 commons=["#{ENV['BASE_DIR']}/test/lib/plugins"]
 puts Dir["#{ENV['BASE_DIR']}/test/**/*_test.rb"].sort
